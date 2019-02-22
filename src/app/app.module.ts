@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
+import { CalendarModule } from 'ion2-calendar';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -28,7 +29,8 @@ import { AdminReportModal1PageModule } from './Reports/Modal/admin-report-modal1
     NewtaskPageModule,
     StudentReportModalPageModule,
     AdminReportModalPageModule,
-    AdminReportModal1PageModule
+    AdminReportModal1PageModule,
+    CalendarModule
   ],
   providers: [
     StatusBar,

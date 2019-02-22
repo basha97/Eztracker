@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform, Events, ToastController } from '@ionic/angular';
+import { Platform, Events, ToastController, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
@@ -100,6 +100,7 @@ export class AppComponent {
         private menuController: MenuController,
         public event: Events,
         public toast: ToastController,
+        public alertController: AlertController
         ) {
         this.initializeApp();
         this.storage.get('userinfo').then((val) => {
@@ -138,21 +139,45 @@ export class AppComponent {
 
         });
     }
+
     logout(){
-       
-        this.storage.get('token').then((val)=>{
-            this.userId= val;
-            console.log(this.userId);
-            //this.router.navigateByUrl('/home');
-        })
-        this.network.logout(this.userId).subscribe((res: any) => {
-            console.log(res);
-            this.storage.clear().then(() => {
-                console.log('all keys cleared');
-                this.router.navigateByUrl('/login');
-            });
-        })
+        this.presentAlertConfirm();
     }
+
+    async presentAlertConfirm() {
+        const alert = await this.alertController.create({
+            header: 'Are you sure to Logout',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: (blah) => {
+                    console.log('Confirm Cancel: blah');
+                }
+                }, {
+                        text: 'Logout',
+                        handler: () => {
+                        console.log('Confirm Okay');
+                            this.storage.get('token').then((val)=>{
+                                this.userId= val;
+                                console.log(this.userId);
+                                //this.router.navigateByUrl('/home');
+                            })
+                            this.network.logout(this.userId).subscribe((res: any) => {
+                                console.log(res);
+                                this.storage.clear().then(() => {
+                                    console.log('all keys cleared');
+                                    this.router.navigateByUrl('/login');
+                                });
+                            })
+                        }
+                    }
+            ]
+        });
+    
+        await alert.present();
+      }
 
     
 }

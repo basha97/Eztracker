@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalController, IonSelect , LoadingController  } from '@ionic/angular';
+import { ModalController, IonSelect , LoadingController, AlertController  } from '@ionic/angular';
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { AdminReportModalPage } from '../Modal/admin-report-modal/admin-report-modal.page';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Storage } from '@ionic/storage';
+import { CalendarComponentOptions, CalendarModalOptions, CalendarModal } from 'ion2-calendar';
 
 
 @Component({
@@ -16,6 +17,15 @@ export class AdminReportPage implements OnInit {
     @ViewChild('selectedstudent') selectstudent:IonSelect;
     @ViewChild('selectedtaskname') selectname:IonSelect;
     @ViewChild('selectedoption') selectoption:IonSelect;
+
+    dateRange: { from: string; to: string; };
+    type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
+    optionsRange: CalendarComponentOptions = {
+      pickMode: 'range'
+    };
+    
+  
+
 
   taskTypes = ['Daily', 'Weekly', 'Monthly'];
   taskNames = [{}];
@@ -31,7 +41,8 @@ export class AdminReportPage implements OnInit {
       taskOption: '',
       studentName: '',
       startDate:new Date().toISOString(),
-      endDate:new  Date(new Date().getTime()+(7*24*60*60*1000)).toISOString()
+      endDate:new  Date(new Date().getTime()+(7*24*60*60*1000)).toISOString(),
+      dateRange: ''
   };
 
   constructor(
@@ -39,17 +50,12 @@ export class AdminReportPage implements OnInit {
     private network: ReportServiceService,
     public modal: ModalController,
     public auth: AuthService,
-    private storage: Storage) {
+    private storage: Storage,
+    private alertController: AlertController) {
 
-   
-   
-    setTimeout(() => {
-        this.opentype();
-        this.network.getStudent().subscribe((res: any) => {
-            this.stuName = res.data;
-            });
-                
-    },500);
+    this.presentAlertConfirm();
+    
+    
    
    }
    async presentLoading() {
@@ -101,7 +107,7 @@ export class AdminReportPage implements OnInit {
                 this.selectname.open();
               }, 600);
               
-
+              console.log(this.form.dateRange);
           },
           error => console.log(error)
       );
@@ -109,7 +115,7 @@ export class AdminReportPage implements OnInit {
 
   onClick(){
       // this.presentLoading();
-
+    console.log(this.form);
       this.network.getreportcon_view(this.form).subscribe(
           (res: any) => {
               console.log(res);
@@ -134,10 +140,40 @@ export class AdminReportPage implements OnInit {
       })
   }
 
-  
-
   opentype(){
     this.selectRef.open();
   }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Proceed with any one of them!',
+      buttons: [
+        {
+          text: 'Filter',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Automatic',
+          handler: () => {
+            console.log('Confirm Okay');
+            setTimeout(() => {
+              this.opentype();
+              this.network.getStudent().subscribe((res: any) => {
+                  this.stuName = res.data;
+                  });
+                      
+          },500);
+          }
+        }
+      ],
+    });
+
+    await alert.present();
+  }
+
+  
 
 }
