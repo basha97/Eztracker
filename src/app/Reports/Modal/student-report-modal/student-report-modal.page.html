@@ -10,30 +10,29 @@
   <ion-row>
     <div class="accordion vertical font" style="overflow:scroll;width:100%">
         <ul>
-
-           
-            <li  *ngFor="let item of reports; let i = index" >
-                <input type="radio" id="radio-{{i}}" name="radio-accordion" checked="checked" />
-                <label for="radio-{{i}}">{{item.date}}  </label>
-                <div class="content">
+            <li *ngFor="let item of reports|keyvalue, let i = index" >
+                <input type="checkbox" [checked]='i==0?false:true'>
+                <i></i>
+                <label class="date">{{item.date}}</label>
+                <div class="datatable">
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th>Option</th>
-                            <th>Actual</th>
-                            <th>Standard</th>
-                            <th>Variance</th>
-                        </tr>
+                            <tr>
+                                <th>Option</th>
+                                <th>Actual</th>
+                                <th>Standard</th>
+                                <th>Variance</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let res of item.list">
-                            <td>{{res.option}}</td>
-                            <td>{{res.actual}}</td>
-                            <td>{{res.standard}}</td>
-                            <td>{{res.variance}}</td>
-                        </tr>
+                            <tr *ngFor="let res of item.list" >
+                                <td>{{res.option}}</td>
+                                <td>{{res.actual}}</td>
+                                <td>{{res.standard}}</td>
+                                <td>{{res.variance}}</td>
+                            </tr>
                         </tbody>
-                </table>
+                    </table>
                 </div>
             </li>
         </ul>
