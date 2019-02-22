@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { ModalController,IonSelect } from '@ionic/angular';
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { StudentReportModalPage } from '../Modal/student-report-modal/student-report-modal.page';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-student-report',
@@ -21,6 +23,7 @@ export class StudentReportPage implements OnInit {
   taskOptions = [{}];
   reports = [{}];
   reportsTitle = '';
+  _code : any ;
 
   form: any = {
       taskType: '',
@@ -30,7 +33,7 @@ export class StudentReportPage implements OnInit {
       endDate: new  Date(new Date().getTime()+(7*24*60*60*1000)).toISOString()
   };
 
-  constructor(private network: ReportServiceService, public modal: ModalController) { 
+  constructor(private network: ReportServiceService, public modal: ModalController,private storage: Storage,) { 
     setTimeout(() => {
         this.selectRef.open();
       }, 500);
@@ -88,16 +91,21 @@ export class StudentReportPage implements OnInit {
   }
 
   onClick(){
-      
-      this.network.getReports(this.form).subscribe(
-          (res: any) => {
+
+        this.storage.get('userinfo').then((result) => {
+            this._code = result.user_id;
+            console.log(this._code);
+        });
+
+        this.network.getReports(this.form , this._code).subscribe(
+            (res: any) => {
               console.log(res);
               this.reports = res.results1;
               this.reportsTitle = res.title;
               console.log(this.reports);
               this.presentModal();
-          },
-          error => console.log(error)
+        },
+            error => console.log(error)
       );
   }
 

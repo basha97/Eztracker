@@ -27,8 +27,8 @@ export class ReportServiceService {
 		return this.http.post(`${this.host}/getTaskoption`,{option: data});
 	}
 
-	getReports(data){
-		return this.http.post(`${this.host}/getReport`,{report: data});
+	getReports(data , code){
+		return this.http.post(`${this.host}/getReport`,{report: data, stud_code: code});
 	}
 	
 	getReportAdmin(data){

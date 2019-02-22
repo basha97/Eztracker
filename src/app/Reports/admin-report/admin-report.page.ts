@@ -3,6 +3,8 @@ import { ModalController, IonSelect , LoadingController  } from '@ionic/angular'
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { AdminReportModalPage } from '../Modal/admin-report-modal/admin-report-modal.page';
 import { AuthService } from 'src/app/Services/auth.service';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-admin-report',
@@ -21,6 +23,7 @@ export class AdminReportPage implements OnInit {
   reports = [{}];
   reportsTitle = '';
   stuName = [{}];
+  _code : any;
   loading: any;  
   form: any = {
       taskType: '',
@@ -31,7 +34,12 @@ export class AdminReportPage implements OnInit {
       endDate:new  Date(new Date().getTime()+(7*24*60*60*1000)).toISOString()
   };
 
-  constructor(public loadingController:LoadingController, private network: ReportServiceService, public modal: ModalController,public auth: AuthService) {
+  constructor(
+    public loadingController:LoadingController,
+    private network: ReportServiceService,
+    public modal: ModalController,
+    public auth: AuthService,
+    private storage: Storage) {
 
    
    
@@ -101,6 +109,7 @@ export class AdminReportPage implements OnInit {
 
   onClick(){
       // this.presentLoading();
+
       this.network.getreportcon_view(this.form).subscribe(
           (res: any) => {
               console.log(res);

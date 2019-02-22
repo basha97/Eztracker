@@ -14,11 +14,18 @@ export class StudentReportModalPage implements OnInit {
   reports: any[];
   reportsTitle: any;
 
+  sDate : any;
+  eDate : any;
+
+ 
+
   automaticClose = false;
 
   constructor(public modal: ModalController) { 
       
   }
+
+
 
   ngOnInit() {
       this.reportsTitle = this.title;
