@@ -1,0 +1,48 @@
+.bg{
+	--background: linear-gradient(to bottom, #751a00,  #e43132);
+}
+
+.bg-transparent{
+	--background:transparent
+}
+.list-ios{
+	background:transparent
+}
+.login{
+	margin-top:200px;
+}
+
+.white-color{
+  --color:white;
+}
+
+h2{
+padding-left:18px;
+margin:0px;
+font-family: 'Abel', sans-serif;
+}
+h2:after{
+	content: "";
+    background-color: #ffffff;
+    width: 40px;
+    height: 5px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    bottom: -4px;
+}
+
+.btn{
+	--background: white;
+	color:red;
+    font-size: 13px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --padding-bottom: 2px;
+    --padding-top: -1px;
+    --border-radius: 4px;
+}
+
+.font-new{
+	font-family: 'Abel', sans-serif;
+}

@@ -1,0 +1,79 @@
+<ion-content >
+    <ion-grid no-padding>
+  <ion-row class="page-title-bg" text-left>
+    <ion-col>
+      <h3 class="font2 page-title">Reports List</h3>
+      <span class="btn-back" (click)="closeModal()"><img src="/assets/img/back.png" class="img-back"></span>
+    </ion-col>
+  </ion-row>
+   
+  <ion-row>
+    <div class="accordion vertical font" style="overflow:scroll;width:100%">
+        <ul>
+
+           
+            <li  *ngFor="let item of reports; let i = index" >
+                <input type="radio" id="radio-{{i}}" name="radio-accordion" checked="checked" />
+                <label for="radio-{{i}}">{{item.date}}  </label>
+                <div class="content">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Actual</th>
+                            <th>Standard</th>
+                            <th>Variance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let res of item.list">
+                            <td>{{res.option}}</td>
+                            <td>{{res.actual}}</td>
+                            <td>{{res.standard}}</td>
+                            <td>{{res.variance}}</td>
+                        </tr>
+                        </tbody>
+                </table>
+                </div>
+            </li>
+        </ul>
+      </div>
+</ion-row>
+  
+</ion-grid>
+
+<ion-row>
+
+        
+
+        <ion-item *ngFor="">
+            <ion-row  >
+                    
+                    
+
+                <ion-col size="6">
+
+                 <ion-input placeholder="Options" type="text" [(ngModel)]='multi.options'></ion-input>
+                    
+                </ion-col>
+                <ion-col size="2">
+                    <ion-button (click)="addoption()"> <ion-icon name="add" ></ion-icon></ion-button>
+                </ion-col>
+                <ion-col size="2">
+                    <ion-button > <ion-icon name="remove" ></ion-icon></ion-button>
+                </ion-col>
+                
+            </ion-row>
+  </ion-item>
+  
+        <ion-item >
+            
+        </ion-item>
+        
+    </ion-row>
+
+<ion-row>
+  
+</ion-row>
+
+</ion-content>

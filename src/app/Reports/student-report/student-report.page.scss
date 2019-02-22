@@ -1,0 +1,138 @@
+.page-title{
+	color:white;
+	font-weight:100;
+	font-size:20px;
+	text-align: left;
+	padding-inline-start:10px;
+}
+
+.page-title-bg{
+	height:130px;
+	background:linear-gradient(to bottom, #751a00,  #e43132);
+}
+
+
+.page-title:after{
+	content: "";
+    background-color: #ffffff;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    top: 45px;
+}
+.cart-bg{
+	background:white;
+	border-radius:5px;
+}
+
+.mt-60{
+	margin-top: -60px;
+}
+
+.mb-10{
+	padding-bottom:10px;
+}
+.input{
+	background: #eee;
+    --padding-top:5px;
+    --padding-end:5px;
+    font-size:13px;
+    --padding-start:15px;
+    --padding-bottom:5px;
+    border-radius: 4px;
+    margin-top:5px;
+}
+.label{
+	font-weight: 600;
+    font-size: 13px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.btn{
+	--background: #d02d0b;
+    color: white;
+    font-size: 13px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-bottom: 0px;
+    --padding-top: -1px;
+    --border-radius: 3px;
+}
+
+.tag-container {
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding: 10px;
+  margin: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #5bc0de;
+  color: #fff;
+  margin: 5px 5px;
+  padding: 2px 5px;
+}
+.option{
+	padding: 8px;
+    background: #4caf50bd;
+    font-size: 12px;
+    border-radius: 6px;
+    color: white;
+    position: relative;
+    padding-right:20px;
+    margin-right:6px;
+    margin-bottom:3px;
+    text-transform:capitalize;
+     white-space:nowrap;
+   display: inline-block;
+}
+
+.close-option{
+	font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.icon {
+    
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: red;
+}
+.color-one{
+  background:#009688ad;
+}
+.color-two{
+  background:#795548ad;
+}
+.color-three{
+  background:#40a4ab;
+}
+.color-four{
+  background:#babaff;
+}
+.color-five{
+  background:#d7b8ff;
+}
+
+
+.btn-back{
+    position: absolute;
+    right: 24px;
+    top: 19px;
+}
+.btn-back img{
+    width: 40px;
+}
+
+.item-radio.item ion-label {
+  color: red; //your color here
+} 

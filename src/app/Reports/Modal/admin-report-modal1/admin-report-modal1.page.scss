@@ -1,0 +1,83 @@
+
+ion-content{
+    --background: var(--ion--color--light);
+}
+
+
+
+.accordion-list {
+   margin-bottom: 4px;
+   --ion-item-background: #fff;
+   .section,.section-active{
+       --min-height: 58px;
+   }
+}
+
+.color-label{
+    --ion-color: #5375cb;
+}
+
+.section {
+    --ion-item-background: #fff;
+    --ion-item-color: #000;
+}
+.section-active {
+    --ion-item-background: #35a6da;
+    --ion-item-color: #fff;
+    font-weight: 600;
+
+    ion-icon{
+        color: #fff;
+    }
+}
+
+.child-list{
+    padding: 0px;
+    margin: 0px;
+    .child,.child-active{
+        margin-bottom: 2px;
+    }
+}
+
+.child-active{
+    --ion-item-background: #000000;
+    --ion-item-color: #fff;
+
+    ion-icon{
+        color: #fff;
+    }
+}
+
+.child{
+    --ion-item-background: #e8e7e6;
+    --ion-item-color: #000;
+}
+
+
+
+.day-header {
+    padding: 6px 0 !important;
+}
+.child {
+    background: #e8e7e6;
+    color: #000;
+    margin-bottom: 4px;
+}
+.child-holder .child-item-header:first-child{
+    margin-top: 2px !important;
+}
+.child-item {
+    background: #fff;
+    padding: 5px 10px;
+}
+.label {
+    margin: 0px;
+}
+.list {
+    margin-bottom: 2px;
+}
+
+.bg-image {
+    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png') no-repeat center center fixed;
+    background-size: cover;
+  }

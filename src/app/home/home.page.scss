@@ -1,0 +1,94 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.dashbaord-img{
+	width:90px;
+}
+
+.main-content{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.col-one{
+  background:#091d2e;
+  display: flex;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.col{
+  text-align:center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.label{
+    font-size:17px;
+    color: white;
+}
+.mt-20{
+  margin-top:20px;
+}
+.br-r{
+      border-right: solid 1px #00000026;
+}
+.br-l{
+      border-left: solid 1px #00000026;
+}
+.br-t{
+      border-top: solid 1px #00000026;
+}
+.br-b{
+      border-bottom: solid 1px #00000026;
+}
+
+h2{
+  color:white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h4{
+   font-size: 15px;
+    margin: 1px;
+    font-weight: 600;
+}
+
+.font-24{
+  font-size:24px;
+}
+.avatar{
+      font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    padding: 19px;
+    font-weight: 600;
+    color:#e43132;
+}
+[data-letters]:before {
+  content:attr(data-letters);
+  display:inline-block;
+  font-size:1em;
+  width:2.5em;
+  height:2.5em;
+  font-family: 'Open Sans', sans-serif; 
+  line-height:2.5em;
+  text-align:center;
+  border-radius:50%;
+  background:plum;
+  vertical-align:middle;
+  margin-right:8px;
+  color:white;
+  }
+
+.card-content{
+      padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: 5px;
+    padding-inline-start: 5px;
+    -webkit-padding-end: 5px;
+    padding-inline-end: 5px;
+}
+.c-header{
+  padding-bottom:0px;
+}

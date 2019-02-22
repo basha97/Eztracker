@@ -1,0 +1,60 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>
+			Reports Admin View
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+		<ion-card-content>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+								<ion-item>
+									<ion-label>Select Type</ion-label>
+									<ion-select [(ngModel)]="form.taskType" (ionChange)="fetchTasks()">
+										<ion-select-option *ngFor="let type of taskTypes" value="{{ type }}">{{ type }}</ion-select-option>
+									</ion-select>
+								</ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<ion-list>
+								<ion-item>
+									<ion-label>Select task</ion-label>
+									<ion-select [(ngModel)]="form.taskName" (ionChange)="fetchOptions()">
+										<ion-select-option *ngFor="let type of taskNames" value="{{ type.id }}">{{ type.taskName }}</ion-select-option>
+									</ion-select>
+								</ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<ion-item>
+								<ion-label>Start Date</ion-label>
+								<ion-datetime [(ngModel)]="form.startDate" display-format="D/MM/YY" picker-format="D MM YYYY"></ion-datetime>
+							</ion-item>
+						</ion-col>	
+					</ion-row>
+					<ion-row>
+						<ion-col >
+							<ion-item>
+								<ion-label>End Date</ion-label>
+								<ion-datetime [(ngModel)]="form.endDate" display-format="D/MM/YY" picker-format="D MM YYYY"></ion-datetime>
+							</ion-item>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-button color="primary" (click)="onClick()">Search</ion-button>
+</ion-content>

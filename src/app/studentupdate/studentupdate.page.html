@@ -1,0 +1,85 @@
+<ion-content >
+	<ion-grid no-padding>
+	 <ion-row class="page-title-bg" text-left>
+	  <ion-col>
+   
+	   <h3 class="font2 page-title">Daily Tasks Tracker Status</h3>  
+	   <ion-menu-button class="btn-back"><img src="/assets/img/back.png"></ion-menu-button>
+	  </ion-col>
+	 </ion-row>
+	 <ion-row class="mt-60">
+	  <ion-col>
+	   <ion-card class="cart-bg">
+		<ion-card-content>
+		 <ion-row class="mb-10">
+		  <ion-col size="12">
+		   <ion-label class="label font">Task Type*</ion-label>
+		   <ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.selecttask"  (ionChange)="selecttask()" #selectedtask >
+			<ion-select-option value="daily">Daily Task</ion-select-option>
+			<ion-select-option value="monthly">Monthly Task</ion-select-option>
+			<ion-select-option value="weekly">Weekly Task</ion-select-option>
+		   </ion-select>
+		  </ion-col>
+		 </ion-row>
+		 <ion-row class="mb-10">
+   
+		  <ion-col size="12">
+		   <ion-label class="label font">Task Name *</ion-label>
+		   <ion-select value="" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.taskname" #seletedtaskname>
+			<ion-select-option *ngFor="let task of taskNames" value="{{task.id}}">{{task.taskName}}</ion-select-option>
+		   </ion-select>
+		  </ion-col> 
+		 </ion-row>
+		 <ion-row class="mb-10"> 
+		  <ion-col size="12">
+		   <ion-label class="label font">Date</ion-label>
+		   <ion-datetime class="input font" display-format="MM/YYYY" picker-format="DD MMMM YYYY" [(ngModel)]="form.startDate"></ion-datetime>
+		  </ion-col>
+		 </ion-row>
+		 <ion-row class="mb-10">
+		  <ion-col size="12" text-right>
+		   <ion-button shape="round" class="btn font" (click)="studentdata()">search</ion-button>
+		  </ion-col> 
+		 </ion-row>
+		</ion-card-content>
+	   </ion-card>
+	  </ion-col>
+	 </ion-row>
+	 <ion-row class="mt-60">
+	  <ion-col>
+	   <ion-list>
+		 <ion-card *ngFor="let task of form.taskdetails">
+		   <ion-grid>
+			<ion-row>
+			 <ion-col>
+			  <h1 >{{ task.date}}</h1>
+			 </ion-col>
+			</ion-row>
+			   <ion-row>
+				   <ion-col col-2>
+					   <b>Students</b>
+				   </ion-col>
+				   <ion-col  *ngFor="let opt of form.option  | keyvalue" col-2 >
+					  <b> {{ opt.value }}</b>
+				   </ion-col>
+				  </ion-row>
+				  <ion-row *ngFor="let sss of task.result | keyvalue">
+				 <ion-col   col-2>
+					   <b>{{sss.value.name}}</b>
+				   </ion-col>
+				   <ion-col *ngFor="let options of form.option | keyvalue" col-2>
+					   <p><ion-input type="text"  [(ngModel)]="sss.value[options.key]" value="{{ sss.value[options.key]}}" [disabled]="form.loginstudentId != sss.key"></ion-input></p>
+				   </ion-col>
+			   </ion-row>
+			   <ion-row>
+			 <ion-col>
+			  <ion-button (click)="studentupdate()">save</ion-button>
+			 </ion-col>
+			</ion-row>
+		   </ion-grid>
+	   </ion-card>
+   </ion-list>
+	  </ion-col>
+	 </ion-row>
+	</ion-grid>
+   </ion-content>

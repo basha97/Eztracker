@@ -1,0 +1,7 @@
+{
+  "name": "ezlearnapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

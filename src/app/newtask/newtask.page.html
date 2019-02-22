@@ -1,0 +1,37 @@
+<ion-content >
+	<ion-grid no-padding>
+	 <ion-row class="page-title-bg" text-left>
+		<ion-col>
+ 
+		 <h3 class="font2 page-title">Add Option Value</h3>
+		 <img (click)="closedata()" src="/assets/img/back.png" class="img-back">
+		</ion-col>
+	 </ion-row>
+ 
+	 <ion-row>
+		<ion-col>
+		 <table class="table table-striped">
+			<thead>
+			 <tr>
+				<th>Student</th>
+				<th *ngFor="let option of optionsList">{{ option.options}}</th>
+			 </tr>
+			</thead>
+			<tbody>
+			 <tr *ngFor="let stud of studentList">
+				<td>{{ stud.fullname }}</td>
+				<td *ngFor="let option of optionsList"><ion-input placeholder="Enter value" type="text" [(ngModel)]="stud[option.options]"></ion-input></td>
+			 </tr>
+			</tbody>
+		 </table>
+		</ion-col>
+	 </ion-row>
+ 
+	 <ion-row>
+		<ion-col  col text-right>
+		 <ion-button shape="round"  class="btn" (click)="saveoption()">Save</ion-button>
+		</ion-col>
+	 </ion-row>
+ 
+	</ion-grid>
+ </ion-content>

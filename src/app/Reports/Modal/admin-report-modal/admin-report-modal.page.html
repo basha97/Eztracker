@@ -1,0 +1,86 @@
+<ion-content >
+	<ion-grid no-padding>
+        <ion-row class="page-title-bg" text-left>
+            <ion-col>
+            <h3 class="font2 page-title">Reports List</h3>
+            <span class="btn-back" (click)="closeModal()"><img src="/assets/img/back.png" class="img-back"></span>
+            </ion-col>
+        </ion-row>
+        
+        <ion-row>
+
+            <!-- <div class="accordion vertical font" style="overflow:scroll;display:none">
+                <ul>
+                    <li *ngFor="let result of reports|keyvalue, let i = index" >
+                        <input type="radio" id="radio-{{i}}" name="radio-accordion" checked=" " />
+                        <label for="radio-{{i}}">{{result.key}}  </label>
+                        <div class="content">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Date</th>
+                                        <th>Options</th>
+                                        <th>Actual</th>
+                                        <th>Standard</th>
+                                        <th>Variance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let res of result.value">
+                                        <td>{{res.stu}}</td>
+                                        <td>{{res.date}}</td>
+                                        <td>{{res.option}}</td>
+                                        <td>{{res.act}}</td>
+                                        <td>{{res.std}}</td>
+                                        <td>{{res.var}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+
+            <ul>
+                <li *ngFor="let result of reports|keyvalue, let i = index" >
+                    <input type="checkbox" [checked]='i==0?false:true'>
+                    <i></i>
+                    <label class="date">{{result.key}}</label>
+                    <div class="datatable">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Option</th>
+                                    <th>Date</th>
+                                    <th>Option Type</th>
+                                    <th>Percentage</th>
+                                    <th>Actual</th>
+                                    <th>Standard</th>
+                                    <th>Variance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let res of result.value" >
+                                    <td>{{res.stu}}</td>
+                                    <td>{{res.option}}</td>
+                                    <td>{{res.date}}</td>
+                                    <td>{{res.optionType}}</td>
+                                    <td>{{res.percentage}}</td>
+                                    <td [style.backgroundColor]="res.colours">{{res.act}}</td>
+                                    <td>{{res.std}}</td>
+                                    <td>{{res.var}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+          
+        </ion-row>
+
+    </ion-grid>
+
+
+</ion-content>

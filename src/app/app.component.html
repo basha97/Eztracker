@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-content class="bg">
+
+      
+           <h2 class="white-color-html text-left font2 menu-title "><span>Welcome Back {{username}}</span> <br>Ez Tracker </h2>
+       
+
+        <ion-list class="bg-transparent-ionic">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" class="bg-transparent ">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" class="bg-transparent menu-border-color">
+              <ion-icon slot="start" [name]="p.icon" class="white-color-html"></ion-icon>
+              <ion-label class="white-color-html">
+               <span class="white-color-html font font-16">{{p.title}}</span> 
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" class="bg-transparent" >
+            <ion-item [routerDirection]="'root'" (click)="logout()" class="bg-transparent no-border">
+              <ion-icon slot="start" name="power" class="white-color-html"></ion-icon>
+              <ion-label>
+                 <span class="white-color-html">Logout</span>
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

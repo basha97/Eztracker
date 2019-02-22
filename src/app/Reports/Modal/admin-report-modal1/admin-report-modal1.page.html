@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="dark">
+      <ion-button  (click)="closeModal()">
+          <ion-icon name="close" ></ion-icon>
+      </ion-button>
+    <ion-title>ReportsAdminShow</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-image">
+    <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>
+    <ion-segment  [(ngModel)]="segmentValue" color="primary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="list">
+            List
+        </ion-segment-button>
+        <ion-segment-button value="consolidated">
+            Consolidated
+        </ion-segment-button>
+    </ion-segment>
+    <div  *ngIf="viewType === 'list'">
+        <ion-card class="card-sample">
+        <ion-card-content>
+            <ion-list class="accordion-list" *ngFor="let item of reports ; let i = index;" lines="none" detail="false" no-padding>
+                <ion-item tappable (click)="toggleSection(i)"  [ngClass]="{'section-active': item.open, 'section': !item.open}" >
+                    <ion-icon  name="arrow-dropright" *ngIf="!item.open"></ion-icon>
+                    <ion-icon  name="arrow-dropdown" *ngIf="item.open"></ion-icon>
+                    <ion-label>
+                        {{ item.studentName }}
+                    </ion-label>
+                </ion-item>
+                <div *ngIf="item.records && item.open">
+                    <ion-list *ngFor="let child of item.records; let j = index" lines='none' class="child-list">
+                        <ion-item tappable (click)="toggleItem(i,j)"   [ngClass]="{'child-active': child.open, 'child': !child.open}">
+                            <ion-icon  name="add-circle-outline" *ngIf="!child.open"></ion-icon>
+                            <ion-icon  name="close-circle-outline" *ngIf="child.open"></ion-icon>
+                            <ion-label class="color-label">
+                                {{ child.date }}
+                            </ion-label>
+                        </ion-item>
+                        <ion-list *ngIf="child.open">
+                            <ion-item  detail-none class="child-list" text-wrap>
+                                <ion-grid>
+                                    <ion-row>
+                                        <ion-col size=4>Option</ion-col>
+                                        <ion-col size=2>Actual</ion-col>
+                                        <ion-col size=2>Standard</ion-col>
+                                        <ion-col size=2>Variance</ion-col>
+                                    </ion-row>
+                                    <ion-row *ngFor="let x of child.list">
+                                        <ion-col size=4>{{ x.option }}</ion-col>
+                                        <ion-col size=2>{{ x.actual }}</ion-col>
+                                        <ion-col size=2>{{ x.standard }}</ion-col>
+                                        <ion-col size=2>{{ x.variance }}</ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-item>
+                        </ion-list>
+                    </ion-list>
+                </div>
+            </ion-list>
+        </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
