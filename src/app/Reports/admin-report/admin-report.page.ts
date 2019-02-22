@@ -18,15 +18,6 @@ export class AdminReportPage implements OnInit {
     @ViewChild('selectedtaskname') selectname:IonSelect;
     @ViewChild('selectedoption') selectoption:IonSelect;
 
-    dateRange: { from: string; to: string; };
-    type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
-    optionsRange: CalendarComponentOptions = {
-      pickMode: 'range'
-    };
-    
-  
-
-
   taskTypes = ['Daily', 'Weekly', 'Monthly'];
   taskNames = [{}];
   taskOptions = [{}];
@@ -51,66 +42,62 @@ export class AdminReportPage implements OnInit {
     public modal: ModalController,
     public auth: AuthService,
     private storage: Storage,
-    private alertController: AlertController) {
+    private alertController: AlertController) 
+    {
+      this.presentAlertConfirm();
+    }
 
-    this.presentAlertConfirm();
-    
-    
-   
-   }
-   async presentLoading() {
+
+    async presentLoading() {
     this.loading = await this.loadingController.create({
       message: 'wait. . .', 
     });
     return await this.loading.present();
-  }
-
-  ngOnInit() {
-    
-   
-  }
-  
-
-  async presentModal() {
-      const modal = await this.modal.create({
-        component: AdminReportModalPage,
-        componentProps: { 
-              value: this.reports,
-              title: this.reportsTitle
-          }
-      });
-      return await modal.present();
     }
 
+  ngOnInit() {
+  }
+  
+  async presentModal() {
+    const modal = await this.modal.create({
+      component: AdminReportModalPage,
+      componentProps: { 
+            value: this.reports,
+            title: this.reportsTitle
+        }
+    });
+    return await modal.present();
+  }
+
   fetchTasks() {
-      this.network.getTaskName(this.form.taskType).subscribe(
-          (res: any) => {
-              this.taskNames = res.data;
-              setTimeout(() => {
-                this.selectstudent.open();
-              }, 600);
-          },
-          error => console.log(error)
-      );
-      this.network.getStudent().subscribe((res: any) => {
-          this.stuName = res.data;
-      });
+    this.network.getTaskName(this.form.taskType).subscribe(
+        (res: any) => {
+            this.taskNames = res.data;
+            setTimeout(() => {
+              this.selectstudent.open();
+            }, 600);
+        },
+        error => console.log(error)
+    );
+    this.network.getStudent().subscribe((res: any) => {
+        this.stuName = res.data;
+    });
   }
 
   fetchOptions() {
-      this.network.getoptions(this.form.taskName).subscribe(
-          (res: any) => {
-              this.taskOptions = res.data;
-              
-              console.log(this.taskOptions);
-              setTimeout(() => {
-                this.selectname.open();
-              }, 600);
-              
-              console.log(this.form.dateRange);
-          },
-          error => console.log(error)
-      );
+    this.network.getoptions(this.form.taskName).subscribe(
+        (res: any) => {
+            this.taskOptions = res.data;
+            
+            console.log(this.taskOptions);
+            setTimeout(() => {
+              this.selectname.open();
+            }, 600);
+            
+            console.log(this.form.dateRange);
+        },
+        error => console.log(error)
+    );
   }
 
   onClick(){
@@ -164,13 +151,11 @@ export class AdminReportPage implements OnInit {
               this.network.getStudent().subscribe((res: any) => {
                   this.stuName = res.data;
                   });
-                      
           },500);
           }
         }
       ],
     });
-
     await alert.present();
   }
 

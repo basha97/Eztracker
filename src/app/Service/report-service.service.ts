@@ -19,8 +19,8 @@ export class ReportServiceService {
 		return this.http.post(`${this.host}/login`,data);
 	}
 
-	getTaskName(data){
-		return this.http.post(`${this.host}/getTaskname`,{type: data});
+	getTaskName(){
+		return this.http.get(`${this.host}/getTaskname`);
 	}
 
 	getoptions(data){

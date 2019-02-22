@@ -79,11 +79,6 @@ export class AppComponent {
         icon: 'list'
     },
     {
-        title: 'Task',
-        url: '/task',
-        icon: 'list'
-    },
-    {
         title: 'addtask',
         url: '/taskadd',
         icon: 'list'
