@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { validateConfig } from '@angular/router/src/config';
+import { AuthService } from '../Services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,9 +16,12 @@ export class HomePage  {
     
     _type : any ;
 
+    userId:any;
+
     constructor(
         private router: Router,
-        private storage: Storage
+        private storage: Storage,
+        private network: AuthService
         ) {
 
       
@@ -86,6 +90,22 @@ ngAfterViewInit(){
                 this.router.navigateByUrl('student-report');
             }
         });
+    }
+
+    logout(){
+       
+        this.storage.get('token').then((val)=>{
+            this.userId= val;
+            console.log(this.userId);
+            //this.router.navigateByUrl('/home');
+        })
+        this.network.logout(this.userId).subscribe((res: any) => {
+            console.log(res);
+            this.storage.clear().then(() => {
+                console.log('all keys cleared');
+                this.router.navigateByUrl('/login');
+            });
+        })
     }
 
 }

@@ -147,7 +147,6 @@ export class AppComponent {
         })
         this.network.logout(this.userId).subscribe((res: any) => {
             console.log(res);
-            this.presentToastFailed();
             this.storage.clear().then(() => {
                 console.log('all keys cleared');
                 this.router.navigateByUrl('/login');
@@ -155,12 +154,5 @@ export class AppComponent {
         })
     }
 
-    async presentToastFailed() {
-        const toast = await this.toast.create({
-            message: 'Logged out successfully',
-            cssClass: "toast",
-            duration: 3000
-        });
-        toast.present();
-    }
+    
 }
