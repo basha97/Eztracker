@@ -1,0 +1,63 @@
+<ion-content >
+	<ion-grid no-padding>
+        <ion-row class="page-title-bg" text-left>
+            <ion-col>
+            <h3 class="font2 page-title">Reports List Consolidated</h3>
+            <span class="btn-back" (click)="closeModal()"><img src="/assets/img/back.png" class="img-back"></span>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="mt-60">
+            <ion-col>
+                <ion-card class="cart-bg mb-0">
+                    <ion-card-content class="card_design">
+                        <ion-label>{{_taskType}} Reports</ion-label>
+                        <br>
+                        <span class="card_label_date">{{_sDate}} - {{_eDate}}</span>
+                    </ion-card-content>
+                </ion-card>  
+            </ion-col>
+        </ion-row>
+        
+        <ion-row>
+            <ion-col>
+                
+                
+                    
+                    <div class="datatable">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Option</th>
+                                    <th>Date</th>
+                                    <th>Option Type</th>
+                                    <th>Percentage</th>
+                                    <th>Actual</th>
+                                    <th>Standard</th>
+                                    <th>Variance</th>
+                                </tr>
+                            </thead>
+                            <tbody  *ngFor="let result of reports|keyvalue, let i = index">
+                                <tr *ngFor="let res of result.value" >
+                                    <td>{{res.stu}}</td>
+                                    <td>{{res.option}}</td>
+                                    <td>{{res.date}}</td>
+                                    <td>{{res.optionType}}</td>
+                                    <td>{{res.percentage}}</td>
+                                    <td [style.backgroundColor]="res.colours">{{res.act}}</td>
+                                    <td>{{res.std}}</td>
+                                    <td>{{res.var}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                
+            </ion-col>    
+        </ion-row>
+
+    </ion-grid>
+
+
+</ion-content>

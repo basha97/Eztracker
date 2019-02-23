@@ -133,7 +133,7 @@ export class AdminReportPage implements OnInit {
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
-      header: 'Proceed with any one of them!',
+      header: 'Proceed with any one of them',
       buttons: [
         {
           text: 'Filter',

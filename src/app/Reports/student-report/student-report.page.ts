@@ -24,6 +24,8 @@ export class StudentReportPage implements OnInit {
   reports = [{}];
   reportsTitle = '';
   _code : any ;
+  _startDateInWords : any;
+  _enDateInWords : any ;
 
   form: any = {
       taskType: '',
@@ -47,7 +49,9 @@ export class StudentReportPage implements OnInit {
         component: StudentReportModalPage,
         componentProps: { 
               value: this.reports,
-              title: this.reportsTitle
+              title: this.reportsTitle,
+              sDAte: this._startDateInWords,
+              eDate: this._enDateInWords
           }
       });
       return await modal.present();
@@ -102,6 +106,8 @@ export class StudentReportPage implements OnInit {
               console.log(res);
               this.reports = res.results1;
               this.reportsTitle = res.title;
+              this._startDateInWords = res.StartDateInWords;
+              this._enDateInWords = res.EndDateInWords;
               console.log(this.reports);
               this.presentModal();
         },

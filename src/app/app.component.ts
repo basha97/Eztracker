@@ -50,12 +50,12 @@ export class AppComponent {
         title: 'Report ',
         url: '/admin-report',
         icon: 'more'
+    },
+    {
+        title: 'Report Consolidated view',
+        url: '/admin-report-con-view',
+        icon: 'more'
     }
-    // {
-    //     title: 'Report 2',
-    //     url: '/admin-report2',
-    //     icon: 'list'
-    // }
     ];
     public appPages = [
     {

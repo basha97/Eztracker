@@ -1,85 +1,54 @@
 <ion-content >
     <ion-grid no-padding>
-  <ion-row class="page-title-bg" text-left>
-    <ion-col>
-      <h3 class="font2 page-title">Reports List</h3>
-      <span class="btn-back" (click)="closeModal()"><img src="/assets/img/back.png" class="img-back"></span>
-    </ion-col>
-  </ion-row>
-   <ion-row>
-       <ion-card>
-           <ion-card-header>
-               <h2>{{reportsTitle}}</h2>
-           </ion-card-header>
-       </ion-card>
-   </ion-row>
-  <ion-row>
-    <div class="accordion vertical font" style="overflow:scroll;width:100%">
-        <ul>
-
-           
-            <li  *ngFor="let item of reports; let i = index" >
-                <input type="radio" id="radio-{{i}}" name="radio-accordion" checked="checked" />
-                <label for="radio-{{i}}">{{item.date}}  </label>
-                <div class="content">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Option</th>
-                            <th>Actual</th>
-                            <th>Standard</th>
-                            <th>Variance</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let res of item.list">
-                            <td>{{res.option}}</td>
-                            <td>{{res.actual}}</td>
-                            <td>{{res.standard}}</td>
-                            <td>{{res.variance}}</td>
-                        </tr>
-                        </tbody>
-                </table>
-                </div>
-            </li>
-        </ul>
-      </div>
-</ion-row>
-  
-</ion-grid>
-
-<ion-row>
-
+        <ion-row class="page-title-bg" text-left>
+            <ion-col>
+                <h3 class="font2 page-title">Reports List</h3>
+                <span class="btn-back" (click)="closeModal()"><img src="/assets/img/back.png" class="img-back"></span>
+            </ion-col>
+        </ion-row>
         
-
-        <ion-item *ngFor="">
-            <ion-row  >
+        <ion-row class="mt-60">
+            <ion-col>
+                <ion-card class="cart-bg mb-0">
+                    <ion-card-content class="card_design">
+                        <ion-label>{{reportsTitle}}</ion-label>
+                        <br>
+                        <span class="card_label_date">{{_startDate}}-{{_endDate}}</span>
+                    </ion-card-content>
+                </ion-card>  
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
                     
-                    
-
-                <ion-col size="6">
-
-                 <ion-input placeholder="Options" type="text" [(ngModel)]='multi.options'></ion-input>
-                    
-                </ion-col>
-                <ion-col size="2">
-                    <ion-button (click)="addoption()"> <ion-icon name="add" ></ion-icon></ion-button>
-                </ion-col>
-                <ion-col size="2">
-                    <ion-button > <ion-icon name="remove" ></ion-icon></ion-button>
-                </ion-col>
-                
-            </ion-row>
-  </ion-item>
-  
-        <ion-item >
-            
-        </ion-item>
-        
-    </ion-row>
-
-<ion-row>
-  
-</ion-row>
-
+                <ul>
+                    <li  *ngFor="let item of reports; let i = index" >
+                        <input type="checkbox" [checked]='i==0?false:true'>
+                        <i></i>
+                        <label class="date">{{item.date}}</label>
+                        <div class="datatable">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Option</th>
+                                        <th>Actual</th>
+                                        <th>Standard</th>
+                                        <th>Variance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let res of item.list">
+                                        <td>{{res.option}}</td>
+                                        <td>{{res.actual}}</td>
+                                        <td>{{res.standard}}</td>
+                                        <td>{{res.variance}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

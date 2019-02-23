@@ -11,22 +11,11 @@ export class TaskitemPage implements OnInit {
   task : any;
 
   constructor(
-    private network: ReportServiceService
-  ) { }
-
+    private network: ReportServiceService,
+  ) {
+      
+   }
   ngOnInit() {
-  }
-
-  ionViewDidEnter(){
-    this.network.getTaskName().subscribe(
-      data => this.handleResponse(data),
-      error => console.log(error)
-    );
-  }
-
-  handleResponse(data){
-    this.task = data.data;
-    console.log(this.task);
   }
 
 }

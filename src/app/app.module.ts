@@ -15,6 +15,7 @@ import {NewtaskPageModule } from './newtask/newtask.module';
 import { StudentReportModalPageModule } from './Reports/Modal/student-report-modal/student-report-modal.module';
 import { AdminReportModalPageModule } from './Reports/Modal/admin-report-modal/admin-report-modal.module';
 import { AdminReportModal1PageModule } from './Reports/Modal/admin-report-modal1/admin-report-modal1.module';
+import { AdminReportConViewModalPageModule } from './Reports/Modal/admin-report-con-view-modal/admin-report-con-view-modal.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AdminReportModal1PageModule } from './Reports/Modal/admin-report-modal1
     StudentReportModalPageModule,
     AdminReportModalPageModule,
     AdminReportModal1PageModule,
-    CalendarModule
+    CalendarModule,
+    AdminReportConViewModalPageModule
   ],
   providers: [
     StatusBar,

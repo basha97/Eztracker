@@ -10,12 +10,15 @@ export class StudentReportModalPage implements OnInit {
     
   @Input() value: any[];
   @Input() title: any[];
+  @Input() sDAte: any[];
+  @Input() eDate: any[];
 
   reports: any[];
   reportsTitle: any;
+  _startDate : any ;
+  _endDate : any ;
 
-  sDate : any;
-  eDate : any;
+  
 
  
 
@@ -30,6 +33,8 @@ export class StudentReportModalPage implements OnInit {
   ngOnInit() {
       this.reportsTitle = this.title;
       this.reports = this.value;
+      this._startDate = this.sDAte;
+      this._endDate = this.eDate;
       console.log(this.reportsTitle);
   }
 
