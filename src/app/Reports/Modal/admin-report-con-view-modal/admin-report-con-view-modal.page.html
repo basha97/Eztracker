@@ -13,17 +13,14 @@
                     <ion-card-content class="card_design">
                         <ion-label>{{_taskType}} Reports</ion-label>
                         <br>
-                        <span class="card_label_date">{{_sDate}} - {{_eDate}}</span>
+                        <span class="card_label_date">{{_sDate}} To {{_eDate}}</span>
                     </ion-card-content>
                 </ion-card>  
             </ion-col>
         </ion-row>
         
         <ion-row>
-            <ion-col>
-                
-                
-                    
+            <ion-col>    
                     <div class="datatable">
                         <table class="table table-striped">
                             <thead>
@@ -31,8 +28,6 @@
                                     <th>Student</th>
                                     <th>Option</th>
                                     <th>Date</th>
-                                    <th>Option Type</th>
-                                    <th>Percentage</th>
                                     <th>Actual</th>
                                     <th>Standard</th>
                                     <th>Variance</th>
@@ -43,8 +38,6 @@
                                     <td>{{res.stu}}</td>
                                     <td>{{res.option}}</td>
                                     <td>{{res.date}}</td>
-                                    <td>{{res.optionType}}</td>
-                                    <td>{{res.percentage}}</td>
                                     <td [style.backgroundColor]="res.colours">{{res.act}}</td>
                                     <td>{{res.std}}</td>
                                     <td>{{res.var}}</td>
@@ -52,8 +45,6 @@
                             </tbody>
                         </table>
                     </div>
-                
-                
             </ion-col>    
         </ion-row>
 

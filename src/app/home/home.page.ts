@@ -133,8 +133,8 @@ ngAfterViewInit(){
         await alert.present();
       }
 
-      getTask(){
-        this.router.navigateByUrl('taskitem');
-      }
+    //   getTask(){
+    //     this.router.navigateByUrl('taskitem');
+    //   }
 
 }
