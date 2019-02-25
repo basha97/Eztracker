@@ -1,84 +1,160 @@
 <ion-content >
 	<ion-grid no-padding>
- 
-	 <ion-row class="page-title-bg" text-left>
-		<ion-col>
- 
-		 <h3 class="font2 page-title">New Task Details</h3>  
-		 <ion-menu-button class="btn-back"><img src="/assets/img/back.png"></ion-menu-button>
-		</ion-col>
-	 </ion-row>
- 
-	 <ion-row class="mt-60">
-		<ion-col>
-		 <ion-card class="cart-bg">
-			<ion-card-content>
-			 <ion-row class="mb-10">
- 
-				<ion-col size="6">
-				 <ion-label class="label font">Group Name</ion-label>
-				 <ion-input class="input font" placeholder="Group Name" type="text" [(ngModel)]='form.groupname'></ion-input>
-				</ion-col>
- 
-				<ion-col size="6">
-				 <ion-label class="label font">Task Name</ion-label>
-				 <ion-input class="input font" placeholder="Task Name" type="text" [(ngModel)]='form.taskname'></ion-input>
-				</ion-col> 
-			 </ion-row>
- 
-			 <ion-row class="mb-10">
- 
-				<ion-col size="6">
-				 <ion-label class="label font">Start Date</ion-label>
-				 <ion-datetime class="input font" display-format="MMM DD, YYYY" [(ngModel)]="form.startdate"></ion-datetime>
-				</ion-col>
- 
-				<ion-col size="6">
-				 <ion-label class="label font">End Date</ion-label>
-				 <ion-datetime class="input font" display-format="MMM DD, YYYY" [(ngModel)]="form.enddate"></ion-datetime>
-				</ion-col> 
- 
-			 </ion-row>
-			 <ion-row class="mb-10"> 
-				<ion-col size="12">
-				 <ion-label class="label font">Select Student</ion-label>
-				 <ion-select multiple="true" class="input font" cancelText="cancel" okText="Okay!" [(ngModel)]="form.selectstudent"  (ionChange)="updateStudentSelection()">
-					<ion-select-option *ngFor="let stud of students" value="{{stud.id}}">{{stud.fullname}}</ion-select-option>
-				 </ion-select>
-				</ion-col>
-			 </ion-row>
- 
-			 <ion-row class="mb-10">
-				<ion-col size="12">
-				 <ion-label class="label font">Enter Option</ion-label>
-				 <ion-input placeholder="Options" clear-input="true" class="input font" [(ngModel)] ='taskname' type="text" (keyup.enter)="addoption(taskname)"></ion-input>
-				</ion-col>
- 
- 
-				<ion-col size="12" *ngIf="form.optionsList.length >=1" >
-				 <span  *ngFor='let multi of form.optionsList | keyvalue; let i = index'>
-					<span class="option {{color[i]}}">{{multi.value.options}} <ion-icon (click)="removeoption(i)" name="close" class="close-option"></ion-icon> </span>
-				 </span>
-				</ion-col> 
-			 </ion-row>
-			 <ion-row class="mb-10">
-				<ion-col size="12">
-				 <ion-label class="label font">Select Task type</ion-label>
-				 <ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.selecttask">
-					<ion-select-option value="daily">Daily</ion-select-option>
-					<ion-select-option value="monthly">monthly</ion-select-option>
-					<ion-select-option value="weekly">weekly</ion-select-option>
-				 </ion-select>
-				</ion-col>
-				<ion-col size="12" text-right>
-				 <ion-button class="btn font" *ngIf="form.selectstudent != '' && (form.optionsList.length > 0)" (click)="addtask()">Fill The Option Value</ion-button>
- 
-				 <ion-button shape="round" class="btn font" (click)="savetask()">Save</ion-button>
-				</ion-col> 
-			 </ion-row>
-			</ion-card-content>
-		 </ion-card>
-		</ion-col>
-	 </ion-row>
+		<ion-row class="page-title-bg" text-left>
+			<ion-col>
+
+				<h3 class="font2 page-title">New Task Details</h3>		
+				<ion-menu-button class="btn-back"><img src="/assets/img/back.png"></ion-menu-button>
+			</ion-col>
+		</ion-row>
+		<ion-row class="mt-60">
+			<ion-col>
+				<ion-card class="cart-bg">
+					<ion-card-content>
+						<ion-row class="mb-10">
+
+							<ion-col size="6">
+								<ion-label class="label font">Group Name</ion-label>
+								<ion-input class="input font" placeholder="Group Name" type="text" [(ngModel)]='form.groupname'></ion-input>
+							</ion-col>
+
+							<ion-col size="6">
+								<ion-label class="label font">Task Name</ion-label>
+								<ion-input class="input font" placeholder="Task Name" type="text" [(ngModel)]='form.taskname'></ion-input>
+							</ion-col>	
+						</ion-row>
+						<ion-row class="mb-10">
+							<ion-col size="6">
+								<ion-label class="label font">Start Date</ion-label>
+								<ion-datetime class="input font" display-format="MMM DD, YYYY" [(ngModel)]="form.startdate"></ion-datetime>
+							</ion-col>
+
+							<ion-col size="6" >
+								<ion-label class="label font">End Date</ion-label>
+								<ion-datetime class="input font" display-format="MMM DD, YYYY" [(ngModel)]="form.enddate"></ion-datetime>
+							</ion-col>	
+						</ion-row>
+						<ion-row class="mb-10">	
+							<ion-col size="12">
+								<ion-label class="label font">Select Student</ion-label>
+								<ion-select multiple="true" class="input font" cancelText="cancel" okText="Okay!" [(ngModel)]="form.selectstudent"  (ionChange)="updateStudentSelection()">
+									<ion-select-option *ngFor="let stud of students" value="{{stud.id}}">{{stud.fullname}}</ion-select-option>
+								</ion-select>
+							</ion-col>
+							<ion-col size="12" *ngFor="let stud of form.studentList">
+								<ion-label class="label font">{{stud.fullname}} Alternative name</ion-label>
+								<ion-input class="input font student-alternative" placeholder="Alternative name for {{ stud.fullname}}" type="text" [(ngModel)]='stud.alternative'></ion-input>
+							</ion-col>
+						</ion-row>
+						<ion-row class="mb-10">
+							<ion-col size="6" style="padding-top: 5px;padding-bottom: 5px;border-radius: 4px;">
+								<ion-label class="label font">Revenue</ion-label>&nbsp;&nbsp;
+								<input class="inp-cbx" id="insert" type="checkbox" [(ngModel)]="form.revenuedetails" style="display: none;"/>
+								<label class="cbx" for="insert">
+									<span>
+										<svg width="12px" height="10px" viewbox="0 0 12 10">
+											<polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+										</svg>
+									</span>
+								</label>
+							</ion-col>
+							<ion-col size="6" style="padding-top: 5px;padding-bottom: 5px;">
+								<ion-label class="label font">Cost</ion-label>&nbsp;&nbsp;
+								<input class="inp-cbx" id="insert1" type="checkbox" [(ngModel)]="form.costdetails"  style="display: none;"/>
+								<label class="cbx" for="insert1">
+									<span>
+										<svg width="20px" height="20px" viewbox="0 0 12 10">
+											<polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+										</svg>
+									</span>
+								</label>
+							</ion-col>
+						</ion-row>
+						<ion-row class="mb-10" [hidden]="!form.revenuedetails">
+								<ion-col size="12">Enter Revenue Value</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">Start</ion-label>
+								</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">End</ion-label>
+								</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">Colour</ion-label>
+								</ion-col>
+							
+							<ion-row *ngFor="let rev of form.revenue">
+
+								<ion-col size="4" >
+									<ion-input placeholder="Options" clear-input="true" class="input font" [(ngModel)]="rev.start"></ion-input>
+								</ion-col>
+								<ion-col size="4">
+									<ion-input placeholder="Options" clear-input="true" class="input font" [(ngModel)]="rev.end"></ion-input>
+								</ion-col>
+								<ion-col size="4">
+									<ion-input placeholder="Options" clear-input="true" class="input font" [(ngModel)]="rev.colour"></ion-input>
+								</ion-col>
+							</ion-row>
+						</ion-row>
+						<ion-row class="mb-10" [hidden]="!form.costdetails">
+							<ion-col size="12">Enter Cost Value</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">Start</ion-label>
+								</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">End</ion-label>
+								</ion-col>
+								<ion-col size="4">
+									<ion-label class="label font">Colour</ion-label>
+								</ion-col>
+							<ion-row *ngFor="let cost of form.cost">
+								<ion-col size="4" >
+									<ion-input placeholder="Options" clear-input="true" class="input font"  [(ngModel)]="cost.start"></ion-input>
+								</ion-col>
+								<ion-col size="4">
+									<ion-input placeholder="Options" clear-input="true" class="input font"  [(ngModel)]="cost.end"></ion-input>
+								</ion-col>
+								<ion-col size="4">
+									<ion-input placeholder="Options" clear-input="true" class="input font"  [(ngModel)]="cost.colour"></ion-input>
+								</ion-col>
+							</ion-row>
+						</ion-row>
+						<ion-row class="mb-10" >
+							<ion-col size="6">
+								<ion-label class="label font">Enter Option</ion-label>
+								<ion-input placeholder="Options" clear-input="true" class="input font" [(ngModel)]	='taskname' type="text" (keyup.enter)="addoption(taskname)"></ion-input>
+							</ion-col>
+							<ion-col size="6">
+								<ion-label class="label font">Select Option Type</ion-label>
+								<ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]	='form.optionsList.list'>
+									<ion-select-option *ngFor="let listdata of optionlistdata" value="{{listdata.id}}">{{listdata.value}}</ion-select-option>
+								</ion-select>
+							</ion-col>
+							<ion-col size="12" *ngIf="form.optionsList.length >=1" >
+								<span  *ngFor='let multi of form.optionsList; let i = index'>
+
+									<span class="option {{color[i]}}"> {{multi.optionName}} - {{multi.taskName}} <ion-icon (click)="removeoption(i)" name="close" class="close-option"></ion-icon> </span>
+
+								</span>
+							</ion-col>	
+						</ion-row>
+						<ion-row class="mb-10">
+							<ion-col size="12">
+								<ion-label class="label font">Select Task Type</ion-label>
+								<ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.selecttask">
+									<ion-select-option value="daily">Daily</ion-select-option>
+									<ion-select-option value="monthly">monthly</ion-select-option>
+									<ion-select-option value="weekly">weekly</ion-select-option>
+								</ion-select>
+							</ion-col>
+							<ion-col size="12" text-right>
+								<ion-button class="btn font" *ngIf="form.selectstudent != '' && (form.optionsList.length > 0)" (click)="addtask()">Fill The Option Value</ion-button>
+
+								<ion-button shape="round" class="btn font" (click)="savetask()">Save</ion-button>
+							</ion-col>	
+						</ion-row>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
 	</ion-grid>
- </ion-content>
+</ion-content>

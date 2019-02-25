@@ -11,7 +11,7 @@ export class StudentupdatePage implements OnInit {
   @ViewChild('seletedtaskname') selectname:IonSelect;
 
   form: any = {
-   selecttask:'daily',
+  	selecttask:'daily',
     taskname: '',
     taskdetails:[],
     option:[],
@@ -32,8 +32,8 @@ export class StudentupdatePage implements OnInit {
 
   }
   selecttask(type="not"){
-   this.network.taskame(this.form.selecttask).subscribe((res:any)=>{
-    this.taskNames = res.data;
+  	this.network.taskame(this.form.selecttask).subscribe((res:any)=>{
+  		this.taskNames = res.data;
       if(type == 'first'){
         setTimeout(() => {
           this.form.taskname = ''+this.taskNames[0].id;
@@ -60,10 +60,10 @@ export class StudentupdatePage implements OnInit {
   }
 
   studentdata(){
-   this.network.tasksavedata(this.form).subscribe((res:any)=>{
-    console.log(res);
-    this.form.taskdetails = res.taskDetails;
-    this.form.option = res.options;
+  	this.network.tasksavedata(this.form).subscribe((res:any)=>{
+  		console.log(res);
+  		this.form.taskdetails = res.taskDetails;
+  		this.form.option = res.options;
       this.form.loginstudentId = res.loginstudentId;
       console.log(this.form.option);
     })
@@ -73,8 +73,14 @@ export class StudentupdatePage implements OnInit {
     console.log(this.form);
     this.network.studentdataupdate(this.form).subscribe((res:any)=>{
       console.log(res);
+      this.form.taskdetails = res.taskDetails;
       this.presentToastFailed();
     })
+  }
+  updatecolour(key,optkey){
+    console.log(key);
+    console.log(optkey);
+   console.log(this.form.taskdetails[0].result[key].changed[optkey] ='yes');
   }
 
   async presentToastFailed() {

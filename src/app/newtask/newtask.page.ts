@@ -12,14 +12,14 @@ export class NewtaskPage implements OnInit {
   @Input() studentList: any;
 
   constructor(navParams: NavParams, public modalCtrl: ModalController, public toast: ToastController) {
-   console.log(this.optionsList);
-    console.log(this.studentList);
+  	console.log(this.optionsList);
+  		console.log(this.studentList);
 
    }
 
   ngOnInit() {
-    console.log(this.optionsList);
-    console.log(this.studentList);
+  		console.log(this.optionsList);
+  		console.log(this.studentList);
   }
   saveoption(){
       let process: boolean = true;
@@ -27,9 +27,9 @@ export class NewtaskPage implements OnInit {
         console.log(v.options)
         this.studentList.forEach((w, j) => {
             console.log(w)
-            console.log(w.hasOwnProperty(v.options));
-            if(w.hasOwnProperty(v.options)) {
-                if(w[v.options].length == 0) {
+            console.log(w.hasOwnProperty(v.taskName));
+            if(w.hasOwnProperty(v.taskName)) {
+                if(w[v.taskName].length == 0) {
                    this.optionrequire();
                     process = false;
                 }

@@ -1,4 +1,3 @@
-
 .col {
   border: solid 1px grey;
   border-bottom-style: none;
@@ -13,23 +12,23 @@
   border-bottom: solid 1px grey;
 }
 
- .table {
-     width: 100%;
-     font-family: 'Open Sans', sans-serif;
-     border: 1px solid #ddd;
-     font-size:14px;
-    }
-    .table > thead > tr > th {
-     border: 1px solid #ddd;
-     background: #ebf2fe;
-     padding: 2px;
-     white-space: nowrap
+	.table {
+   		width: 100%;
+   		font-family: 'Open Sans', sans-serif;
+   		border: 1px solid #ddd;
+   		font-size:14px;
+   	}
+   	.table > thead > tr > th {
+    	border: 1px solid #ddd;
+    	background: #ebf2fe;
+    	padding: 2px;
+    	white-space: nowrap
     }
     .table > tbody > tr > td {
-     border: 1px solid #ddd;
-     padding: 2px;
-     background: #fff;
-     white-space: nowrap
+    	border: 1px solid #ddd;
+    	padding: 2px;
+    	background: #fff;
+    	white-space: nowrap
     }
 
     .page-title{

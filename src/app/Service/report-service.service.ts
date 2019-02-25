@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class ReportServiceService {
   	constructor(
 		private http: HttpClient,
 		public loading: LoadingController,
-		public toast: ToastController
+		public toast: ToastController,
+		public config: ConfigService
 	) { }
 	
 	searchReports(data){
@@ -28,7 +30,7 @@ export class ReportServiceService {
 	}
 
 	getReports(data , code){
-		return this.http.post(`${this.host}/getReport`,{report: data, stud_code: code});
+		return this.http.post(`${this.host}/getReport`,{report: data, stud_code: code},this.config.getHeaders());
 	}
 	
 	getReportAdmin(data){

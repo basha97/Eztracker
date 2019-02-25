@@ -41,6 +41,13 @@ export class StudentReportPage implements OnInit {
       }, 500);
   }
 
+  ionViewDidEnter(){
+    this.storage.get('userinfo').then((result) => {
+      this._code = result.user_id;
+      console.log(this._code);
+    });
+  }
+
   ngOnInit() {
       
   }
@@ -56,18 +63,6 @@ export class StudentReportPage implements OnInit {
       });
       return await modal.present();
     }
-
-  // ionViewDidEnter () {
-  //     this.datePicker.show({
-  //         date: new Date(),
-  //         mode: 'date',
-  //         androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-  //       }).then(
-  //         date => console.log('Got date: ', date),
-  //         err => console.log('Error occurred while getting date: ', err)
-  //       );
-  // ,private datePicker: DatePicker
-  // }
 
   fetchTasks() {
       this.network.getTaskName(this.form.taskType).subscribe(
@@ -95,12 +90,6 @@ export class StudentReportPage implements OnInit {
   }
 
   onClick(){
-
-        this.storage.get('userinfo').then((result) => {
-            this._code = result.user_id;
-            console.log(this._code);
-        });
-
         this.network.getReports(this.form , this._code).subscribe(
             (res: any) => {
               console.log(res);
