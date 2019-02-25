@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../app/Services/auth.service';
+import { AuthService } from '../../app/Service/auth.service';
 import {  NavController,  MenuController,ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -129,11 +129,11 @@ export class SignupPage implements OnInit {
     if(this.form.student){
       this.form.staff = true;
       this.form.student = true;
-      this.form.type = 'student';
+      this.form.type = 'staff';
     }else{
       this.form.staff = false;
       this.form.student = false;
-      this.form.type = 'staff';
+      this.form.type = 'student';
     }
   }
 }

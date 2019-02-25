@@ -3,7 +3,7 @@ import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { validateConfig } from '@angular/router/src/config';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../Service/auth.service';
 import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',

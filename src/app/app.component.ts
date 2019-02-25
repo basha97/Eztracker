@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 import { LoginPage } from '../app/login/login.page';
 import { HomePage } from '../app/home/home.page';
 import { Router } from '@angular/router';
-import { AuthService } from '../app/Services/auth.service';
+import { AuthService } from '../app/Service/auth.service';
 import { MenuController } from '@ionic/angular';
 
 @Component({

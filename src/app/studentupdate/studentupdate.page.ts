@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../app/Services/auth.service';
+import { AuthService } from '../../app/Service/auth.service';
 import { Platform, Events ,ActionSheetController,IonSelect,ToastController} from '@ionic/angular';
 @Component({
   selector: 'app-studentupdate',

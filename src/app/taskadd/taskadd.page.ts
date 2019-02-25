@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController, NavParams, ToastController  }  from '@ionic/angular';
 import { NewtaskPage } from '../newtask/newtask.page';
-import { AuthService } from '../../app/Services/auth.service';
+import { AuthService } from '../../app/Service/auth.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
@@ -82,6 +82,7 @@ export class TaskaddPage implements OnInit {
 		})
 		 this.presentToastFailed();
 	}
+	
 	addoption(e){
 		console.log(this.taskname);
 

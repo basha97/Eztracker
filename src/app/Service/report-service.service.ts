@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { ConfigService } from '../config.service';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'

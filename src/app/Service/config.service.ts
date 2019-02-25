@@ -10,6 +10,7 @@ export class ConfigService {
   constructor(private http: HttpClient, public storage: Storage,) {
    this.storage.get('token').then((val)=>{
        this.jwt = val;
+       console.log(this.jwt);
       });
 }
 getHeaders(): any {
