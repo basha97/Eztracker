@@ -39,10 +39,10 @@ export class AuthService {
       return this.http.post(`${this.host}/gettask`,{data:data});
     }
     tasksavedata(data){
-      return this.http.post(`${this.host}/tasksavedata`,{data:data});
+      return this.http.post(`${this.host}/tasksavedata`,{data:data},this.confiq.getHeaders());
     }
 
     studentdataupdate(data){
-      return this.http.post(`${this.host}/studentupdate`,{data:data});
+      return this.http.post(`${this.host}/studentupdate`,{data:data},this.confiq.getHeaders());
     }
 }
