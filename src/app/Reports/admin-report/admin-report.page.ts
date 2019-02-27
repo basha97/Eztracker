@@ -33,7 +33,7 @@ export class AdminReportPage implements OnInit {
 		taskOption: '',
 		studentName: '',
 		startDate:new Date().toISOString(),
-		endDate:new  Date(new Date().getTime()+(7*24*60*60*1000)).toISOString(),
+		endDate:new  Date(new Date().getTime()+(6*24*60*60*1000)).toISOString(),
 		dateRange: ''
 	};
 

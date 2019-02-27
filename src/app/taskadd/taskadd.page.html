@@ -47,9 +47,9 @@
 							</ion-col>
 						</ion-row>
 						<ion-row class="mb-10">
-							<ion-col size="6" style="padding-top: 5px;padding-bottom: 5px;border-radius: 4px;">
+							<ion-col size="6" style="padding-top: 5px;padding-bottom: 5px;border-radius: 4px;" >
 								<ion-label class="label font">Revenue</ion-label>&nbsp;&nbsp;
-								<input class="inp-cbx" id="insert" type="checkbox" [(ngModel)]="form.revenuedetails" style="display: none;"/>
+								<input class="inp-cbx" id="insert" type="checkbox" [(ngModel)]="form.revenuedetails" (click)="revenueData()" style="display: none;"/>
 								<label class="cbx" for="insert">
 									<span>
 										<svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -60,7 +60,7 @@
 							</ion-col>
 							<ion-col size="6" style="padding-top: 5px;padding-bottom: 5px;">
 								<ion-label class="label font">Cost</ion-label>&nbsp;&nbsp;
-								<input class="inp-cbx" id="insert1" type="checkbox" [(ngModel)]="form.costdetails"  style="display: none;"/>
+								<input class="inp-cbx" id="insert1" type="checkbox" [(ngModel)]="form.costdetails" (click)="costData()" style="display: none;"/>
 								<label class="cbx" for="insert1">
 									<span>
 										<svg width="20px" height="20px" viewbox="0 0 12 10">
@@ -171,13 +171,6 @@
 									<ion-select-option *ngFor="let day of form.day" value="{{day.date }}">{{ day.date }}</ion-select-option>
 								</ion-select>
 							</ion-col>
-							<ion-col size="12" >
-								<div class="inputGroup">
-									<input id="option1" name="option1" type="checkbox"/>
-									<label for="option1">Option One</label>
-								</div>
-							</ion-col>
-							 
 							<ion-col size="12" text-right>
 								<ion-button class="btn font" *ngIf="form.selectstudent != '' && (form.optionsList.length > 0)" (click)="addtask()">Fill The Option Value</ion-button>
 

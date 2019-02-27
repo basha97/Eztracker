@@ -9,25 +9,25 @@ import { ConfigService } from '../../app/Service/config.service'
 })
 export class AuthService {
 
- public host = 'http://ezlearnapp.test/api';
+	public host = 'http://ezlearnapp.test/api';
   jwt:string
 
-   constructor(private http: HttpClient, public storage: Storage,public confiq :ConfigService) { 
+  	constructor(private http: HttpClient, public storage: Storage,public confiq :ConfigService) { 
       this.storage.get('token').then((val)=>{
        this.jwt = val;
       });
     }
 
-   login(data){
-    return this.http.post(`${this.host}/login`,data);
-   }
+  	login(data){
+  		return this.http.post(`${this.host}/login`,data);
+  	}
 
-   signup(data){
-    return this.http.post(`${this.host}/signup`,data);
-   }
-   getsudent(){
-    return this.http.get(`${this.host}/getstudent`);
-   }
+  	signup(data){
+  		return this.http.post(`${this.host}/signup`,data);
+  	}
+  	getsudent(){
+  		return this.http.get(`${this.host}/getstudent`);
+  	}
     addtask(data){
       return this.http.post(`${this.host}/admintrackersave`,{data:data},this.confiq.getHeaders());
     }
@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     taskame(data){
-      return this.http.post(`${this.host}/gettask`,{data:data});
+      return this.http.post(`${this.host}/gettaskdata`,{data:data});
     }
     tasksavedata(data){
       return this.http.post(`${this.host}/tasksavedata`,{data:data},this.confiq.getHeaders());

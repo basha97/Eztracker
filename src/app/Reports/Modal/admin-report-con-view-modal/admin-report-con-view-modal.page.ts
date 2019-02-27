@@ -13,45 +13,43 @@ export class AdminReportConViewModalPage implements OnInit {
   @Input() eDate: any[];
   @Input() taskType: any[];
 
-  reports : any[];
-  _sDate : any;
-  _eDate : any;
-  _taskType : any;
+    reports : any[];
+    _sDate : any;
+    _eDate : any;
+    _taskType : any;
 
+    constructor(
+            public modal: ModalController,
+            public network: ReportServiceService
+        ) { }
+
+        ngOnInit() {
+            this.reports = this.value;
+            this._sDate = this.sDate;
+            this._eDate = this.eDate;
+            this._taskType = this.taskType;
+        }
   
+        closeModal(){
+            this.modal.dismiss();
+        }
+        toggleSection(i) {
+            this.reports[i].open = !this.reports[i].open;
+        }
   
-  constructor(
-      public modal: ModalController,
-      public network: ReportServiceService
-      ) { }
+        toggleItem(i, j) {
+            this.reports[i].records[j].open = !this.reports[i].records[j].open;
+        }
 
-      ngOnInit() {
-          this.reports = this.value;
-          this._sDate = this.sDate;
-          this._eDate = this.eDate;
-          this._taskType = this.taskType;
-      }
-  
-      closeModal(){
-          this.modal.dismiss();
-      }
-      toggleSection(i) {
-          this.reports[i].open = !this.reports[i].open;
-      }
-  
-      toggleItem(i, j) {
-          this.reports[i].records[j].open = !this.reports[i].records[j].open;
-      }
+        tonggle(data){
 
-      tonggle(data){
+            if(data){
+                data.show = false;
+            }else{
+                data.show = true;
+            }
 
-          if(data){
-              data.show = false;
-          }else{
-              data.show = true;
-          }
-
-      }
+        }
   
 
 }
