@@ -3,6 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { AdminReportModal1Page } from '../Modal/admin-report-modal1/admin-report-modal1.page';
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-admin-report2',
@@ -18,6 +20,7 @@ export class AdminReport2Page implements OnInit {
   taskOptions = [{}];
   reports = [{}];
   reportsTitle = '';
+  _code : any;
 
   form: any = {
       taskType: '',
@@ -31,10 +34,18 @@ export class AdminReport2Page implements OnInit {
       private http: HttpClient,
       private network: ReportServiceService,
       public modal: ModalController,
+      public storage: Storage
       ) {}
 
   ngOnInit() {
       
+  }
+
+  ionViewDidEnter(){
+    this.storage.get('userinfo').then((result) => {
+      this._code = result.id;
+      console.log(this._code);
+    });
   }
 
   toggleSection(i) {
@@ -68,7 +79,7 @@ export class AdminReport2Page implements OnInit {
   // }
 
   fetchTasks() {
-      this.network.getTaskName(this.form.taskType).subscribe(
+      this.network.getTaskName(this.form.taskType,this._code).subscribe(
           (res: any) => {
               this.taskNames = res.data;
           },

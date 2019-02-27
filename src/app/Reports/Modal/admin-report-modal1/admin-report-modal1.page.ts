@@ -28,7 +28,6 @@ export class AdminReportModal1Page implements OnInit {
   ngOnInit() {
       this.reports = this.info;
       console.log(this.reports);
-      this.network.getStudent().subscribe();
   }
 
   closeModal(){

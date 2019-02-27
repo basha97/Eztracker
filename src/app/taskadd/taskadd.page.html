@@ -146,6 +146,38 @@
 									<ion-select-option value="weekly">weekly</ion-select-option>
 								</ion-select>
 							</ion-col>
+							<ion-col size="12" [hidden]="form.selecttask != 'daily'" *ngFor="let day of form.days; let i = index">
+								<ion-label class="label font">
+									{{  day.day }}
+								</ion-label>
+								<input class="inp-cbx" id="insertsz{{i}}" type="checkbox" [(ngModel)]="day.selected"  style="display: none;"/>
+								<label class="cbx" for="insertsz{{i}}">
+									<span>
+										<svg width="20px" height="20px" viewbox="0 0 12 10">
+											<polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+										</svg>
+									</span>
+								</label>
+							</ion-col>
+							<ion-col size="12" [hidden]="form.selecttask != 'weekly'">
+								<ion-label class="label font">Select days</ion-label>
+								<ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.weekly">
+									<ion-select-option *ngFor="let day of form.days" value="{{day.dayNum}}">{{day.day}}</ion-select-option>
+								</ion-select>
+							</ion-col>
+							<ion-col size="12" [hidden]="form.selecttask != 'monthly'">
+								<ion-label class="label font">Select days</ion-label>
+								<ion-select value="brown" okText="Okay" class="input font" cancelText="Dismiss" [(ngModel)]="form.monthly">
+									<ion-select-option *ngFor="let day of form.day" value="{{day.date }}">{{ day.date }}</ion-select-option>
+								</ion-select>
+							</ion-col>
+							<ion-col size="12" >
+								<div class="inputGroup">
+									<input id="option1" name="option1" type="checkbox"/>
+									<label for="option1">Option One</label>
+								</div>
+							</ion-col>
+							 
 							<ion-col size="12" text-right>
 								<ion-button class="btn font" *ngIf="form.selectstudent != '' && (form.optionsList.length > 0)" (click)="addtask()">Fill The Option Value</ion-button>
 

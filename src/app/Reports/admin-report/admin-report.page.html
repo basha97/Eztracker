@@ -22,20 +22,20 @@
 
                             <ion-row class="mb-10">	
                                 <ion-col size="12">
+                                <ion-label class="label font">Select Task</ion-label>
+                                <ion-select  class="input font" placeholder="Task" [(ngModel)]="form.taskName" (ionChange)="fetchOptions()" #selectedoption>
+                                    <ion-select-option *ngFor="let type of taskNames" value="{{ type.id }}">{{ type.taskName }}</ion-select-option>
+                                </ion-select>
+                                </ion-col>
+                            </ion-row>
+
+                            <ion-row class="mb-10">	
+                                <ion-col size="12">
                                     <ion-label class="label font">Select Student</ion-label>
                                     <ion-select class="input font" placeholder="Students" multiple="true" [(ngModel)]="form.studentName" (ionChange)="fetchstudent()" #selectedstudent>
-                                    <ion-select-option *ngFor="let type of stuName" value="{{ type.id }}">{{ type.fullname }}</ion-select-option>
+                                    <ion-select-option *ngFor="let type of stuName_alias" value="{{ type.studentId }}"> {{type.getstudent[0].fullname}} - {{ type.alternative_name }} </ion-select-option>
                                     </ion-select>
                                 </ion-col>
-                                </ion-row>
-
-                                <ion-row class="mb-10">	
-                                    <ion-col size="12">
-                                    <ion-label class="label font">Select Task</ion-label>
-                                    <ion-select  class="input font" placeholder="Task" [(ngModel)]="form.taskName" (ionChange)="fetchOptions()" #selectedoption>
-                                        <ion-select-option *ngFor="let type of taskNames" value="{{ type.id }}">{{ type.taskName }}</ion-select-option>
-                                    </ion-select>
-                                    </ion-col>
                                 </ion-row>
 
                                 <ion-row class="mb-10">	

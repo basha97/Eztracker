@@ -38,7 +38,7 @@
                                     <td>{{res.stu}}</td>
                                     <td>{{res.option}}</td>
                                     <td>{{res.date}}</td>
-                                    <td [style.backgroundColor]="res.colours">{{res.act}}</td>
+                                    <td [ngStyle]="{'background-color': res.colours , 'border' :  res.colours_border , 'color' : 'white'}">{{res.act}}</td>
                                     <td>{{res.std}}</td>
                                     <td>{{res.var}}</td>
                                 </tr>

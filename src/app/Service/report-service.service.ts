@@ -21,16 +21,16 @@ export class ReportServiceService {
 		return this.http.post(`${this.host}/login`,data);
 	}
 
-	getTaskName(data){
-		return this.http.post(`${this.host}/getTaskname`,{type : data});
+	getTaskName(data , code){
+		return this.http.post(`${this.host}/getTaskname_for_students`,{type : data , code : code});
 	}
 
 	getoptions(data){
 		return this.http.post(`${this.host}/getTaskoption`,{option: data});
 	}
 
-	getReports(data , code){
-		return this.http.post(`${this.host}/getReport`,{report: data, stud_code: code},this.config.getHeaders());
+	getReports(data , code , id){
+		return this.http.post(`${this.host}/getReport`,{report: data, stud_code: code, stud_id : id},this.config.getHeaders());
 	}
 	
 	getReportAdmin(data){
@@ -45,8 +45,15 @@ export class ReportServiceService {
 		return this.http.post(`${this.host}/getReportcon_view`,{report:data});
 	}
 
-	getStudent(){
-		return this.http.get(`${this.host}/getstudent`);
+	getStudent(data){
+		return this.http.post(`${this.host}/get_student_alias`,{data : data});
+	}
+
+	getTasktype(){
+		return this.http.get(`${this.host}/getTasktype`);
+	}
+	getTaskName_admin(data){
+		return this.http.post(`${this.host}/getTaskname`,{type : data});
 	}
 
 	createLoader(message = 'Loading...'){

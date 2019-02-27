@@ -15,7 +15,7 @@
 				<ion-col size="12">
 				  <ion-label class="label font">Select Type</ion-label>
 				  <ion-select  class="input font" placeholder="Type"  [(ngModel)]="form.taskType"  (ionChange)="fetchTasks()" #selectedtask>
-					<ion-select-option *ngFor="let type of taskTypes" value="{{ type }}">{{ type }}</ion-select-option>
+					<ion-select-option *ngFor="let type of taskTypes" value="{{ type.type }}">{{ type.type }}</ion-select-option>
 				  </ion-select>
 				</ion-col>
 			  </ion-row>

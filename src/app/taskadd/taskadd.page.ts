@@ -17,11 +17,100 @@ export class TaskaddPage implements OnInit {
 		groupname:'',
 		taskname:'',
 		costdetails:'',
+		weekly:'',
+		monthly:'',
 		revenuedetails:'',
 		startdate:new Date().toISOString(),
 		enddate:new Date().toISOString(),
 		selectstudent:[],
 		optionsList: [],
+		days : [
+            {
+                "day": "Monday",
+                "dayNum": "1"
+            },{
+                "day": "Tuesday",
+                "dayNum": "2"
+            },{
+                "day": "Wednesday",
+                "dayNum": "3"
+            },{
+                "day": "Thursday",
+                "dayNum": "4"
+            },{
+                "day": "Friday",
+                "dayNum": "5"
+            },{
+                "day": "Saturday",
+                "dayNum": "6"
+            },{
+                "day": "Sunday",
+                "dayNum": "7"
+            }
+        ],
+     	day :[
+        { 
+            "date": "1"
+        }, { 
+            "date": "2"
+        },  { 
+            "date": "3"
+        } ,  { 
+            "date": "4"
+        },  { 
+            "date": "5"
+        },  { 
+            "date": "6"
+        },  { 
+            "date": "7"
+        },  { 
+            "date": "8"
+        },  { 
+            "date": "9"
+        },  { 
+            "date": "10"
+        },  { 
+            "date": "11"
+        },  { 
+            "date": "12"
+        },  { 
+            "date": "13"
+        },  { 
+            "date": "14"
+        },  { 
+            "date": "15"
+        },  { 
+            "date": "16"
+        },  { 
+            "date": "17"
+        },  { 
+            "date": "18"
+        },  { 
+            "date": "19"
+        },  { 
+            "date": "20"
+        },  { 
+            "date": "21"
+        },  { 
+            "date": "22"
+        },  { 
+            "date": "23"
+        },  { 
+            "date": "24"
+        },  { 
+            "date": "25"
+        },  { 
+            "date": "26"
+        },  { 
+            "date": "27"
+        },  { 
+            "date": "28"
+        },  { 
+            "date": "29"
+        },  { 
+            "date": "30"
+        }
+        ],
 		revenue:[{
             start:'0',
             end:'70',
@@ -82,7 +171,6 @@ export class TaskaddPage implements OnInit {
 		})
 		 this.presentToastFailed();
 	}
-	
 	addoption(e){
 		console.log(this.taskname);
 
