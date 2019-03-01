@@ -56,15 +56,15 @@
 						<table class="table table-striped" >
 							<thead>
 								<tr>
-									<th>Student</th>
-									<th *ngFor="let opt of form.option  | keyvalue">{{ opt.value }}</th>
+									<td>Student</td>
+									<td *ngFor="let opt of form.option  | keyvalue">{{ opt.value }}</td>
 								</tr>
 							</thead>
 							<tbody>
 								<tr *ngFor="let sss of task.result | keyvalue">
-									<td [hidden]="!sss.value.alternative != ''">{{ sss.value.alternative }}</td>
-									<td [hidden]="!sss.value.alternative == ''">{{sss.value.name}}</td>
-									<td *ngFor="let options of form.option | keyvalue" [style.backgroundColor]="task.result[sss.key].bgcolor[options.key]" [style.Color]="white"><ion-input type="text"  (change)="updatecolour(sss.key,options.key)" [(ngModel)]="sss.value[options.key]" value="{{ sss.value[options.key]}}" [disabled]="form.loginstudentId != sss.key" ></ion-input></td>
+									<th [hidden]="!sss.value.alternative != ''">{{ sss.value.alternative }}</th>
+									<th [hidden]="!sss.value.alternative == ''">{{sss.value.name}}</th>
+									<th *ngFor="let options of form.option | keyvalue" [style.backgroundColor]="task.result[sss.key].bgcolor[options.key]" [style.Color]="white"><ion-input type="text"  (change)="updatecolour(sss.key,options.key)" [(ngModel)]="sss.value[options.key]" value="{{ sss.value[options.key]}}" [disabled]="form.loginstudentId != sss.key" ></ion-input></th>
 								</tr>
 							</tbody>
 						</table>

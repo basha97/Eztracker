@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 export class TaskaddPage implements OnInit {
     errorgreater = '';
     errorthirdvalue = '';
-    form = {
+    form :  any = {
         studentList: [],
         trackecode: '',
         groupname:'',
