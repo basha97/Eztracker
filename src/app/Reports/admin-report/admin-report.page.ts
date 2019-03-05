@@ -3,7 +3,6 @@ import { ModalController, IonSelect , LoadingController, AlertController, ToastC
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { AdminReportModalPage } from '../Modal/admin-report-modal/admin-report-modal.page';
 import { Storage } from '@ionic/storage';
-import { CalendarComponentOptions, CalendarModalOptions, CalendarModal } from 'ion2-calendar';
 import { AuthService } from 'src/app/Service/auth.service';
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController, NavParams, ToastController  }  from '@ionic/angular';
+import { ModalController, ToastController  }  from '@ionic/angular';
 import { NewtaskPage } from '../newtask/newtask.page';
 import { AuthService } from '../../app/Service/auth.service';
 import { Router } from '@angular/router';

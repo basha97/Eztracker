@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../app/Service/auth.service';
 import { Storage } from '@ionic/storage';
-import { Platform, Events ,ActionSheetController,IonSelect,ToastController} from '@ionic/angular';
+import {  Events ,ActionSheetController,IonSelect,ToastController} from '@ionic/angular';
 @Component({
   selector: 'app-studentupdate',
   templateUrl: './studentupdate.page.html',
