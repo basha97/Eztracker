@@ -10,7 +10,7 @@
 		<ion-row class="mt-60">
 			<ion-col>
 				<ion-card class="cart-bg">
-					<ion-card-content>
+					<ion-card-content>					
 						<ion-row class="mb-10">
 							<ion-col size="12">
 								<ion-label class="label font">Task Type*</ion-label>
@@ -30,12 +30,12 @@
 								</ion-select>
 							</ion-col> 
 						</ion-row>
-						<ion-row class="mb-10">	
+<!-- 						<ion-row class="mb-10">	
 							<ion-col size="12">
 								<ion-label class="label font">Date</ion-label>
 								<ion-datetime class="input font" display-format="MM/YYYY" picker-format="DD MMMM YYYY" [(ngModel)]="form.startDate"></ion-datetime>
 							</ion-col>
-						</ion-row>
+						</ion-row> -->
 						<ion-row class="mb-10">
 							<ion-col size="12" text-right>
 								<ion-button shape="round" class="btn font" (click)="studentdata()">Search</ion-button>
@@ -45,26 +45,26 @@
 				</ion-card>
 			</ion-col>
 		</ion-row>
-
-		<ion-row  *ngFor="let task of form.taskdetails">
+<!-- 
+		<ion-row  *ngFor="let task of form.taskdetails | keyvalue">
 			<ion-col size="12">
 				<ion-card  style="padding:0px !important;">
 					<ion-card-header style="padding:0px;margin:0px;">
-						<ion-card-title> <h1 class="font" style="margin: 0px;background: #ae2519;color: white;font-size: 16px;padding: 11px;"> {{ task.date}}</h1> </ion-card-title>
+						<ion-card-title> <h1 class="font" style="margin: 0px;background: #ae2519;color: white;font-size: 16px;padding: 11px;"> {{ task.value.dateFormat}}</h1> </ion-card-title>
 					</ion-card-header>
 					<ion-card-content style="padding:0px !important;overflow:scroll">
 						<table class="table table-striped" >
 							<thead>
 								<tr>
-									<td>Student</td>
-									<td *ngFor="let opt of form.option  | keyvalue">{{ opt.value }}</td>
+									<th>Student</th>
+									<th *ngFor="let opt of form.option  | keyvalue">{{ opt.value }}</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let sss of task.result | keyvalue">
-									<th [hidden]="!sss.value.alternative != ''">{{ sss.value.alternative }}</th>
-									<th [hidden]="!sss.value.alternative == ''">{{sss.value.name}}</th>
-									<th *ngFor="let options of form.option | keyvalue" [style.backgroundColor]="task.result[sss.key].bgcolor[options.key]" [style.Color]="white"><ion-input type="text"  (change)="updatecolour(sss.key,options.key)" [(ngModel)]="sss.value[options.key]" value="{{ sss.value[options.key]}}" [disabled]="form.loginstudentId != sss.key" ></ion-input></th>
+								<tr *ngFor="let sss of task.value.result | keyvalue">
+									<td [hidden]="!sss.value.alternative != ''">{{ sss.value.alternative }}</td>
+									<td [hidden]="!sss.value.alternative == ''">{{sss.value.name}}</td>
+									<td *ngFor="let options of form.option | keyvalue" [style.backgroundColor]="task.value.result[sss.key].bgcolor[options.key]" [style.Color]="white"><ion-input type="text"  (change)="updatecolour(task.key, sss.key,options.key)" [(ngModel)]="sss.value[options.key]" value="{{ sss.value[options.key]}}" [disabled]="form.loginstudentId != sss.key" ></ion-input></td>
 								</tr>
 							</tbody>
 						</table>
@@ -83,6 +83,6 @@
 			<ion-col [hidden]="!errordate">
 				<ion-label>{{ errordate }} </ion-label>
 			</ion-col>
-		</ion-row>
+		</ion-row> -->
 	</ion-grid>
 </ion-content>

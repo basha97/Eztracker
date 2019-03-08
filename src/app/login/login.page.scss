@@ -36,6 +36,7 @@ h2:after{
 	--background: white;
 	color:red;
     font-size: 13px;
+    text-transform:capitalize;
     --padding-start: 20px;
     --padding-end: 20px;
     --padding-bottom: 2px;
@@ -43,6 +44,24 @@ h2:after{
     --border-radius: 4px;
 }
 
+.ion-item {
+  --border-color: #ffffff4d;
+  --border-style: dashed;
+  --highlight-color-focused :white;
+  --highlight-color-invalid:white;
+  --highlight-color-valid:white;
+}
+
 .font-new{
 	font-family: 'Abel', sans-serif;
+}
+
+.list-md{
+    background:transparent !important;
+}
+.item-native{
+    --border-color:white;
+}
+.button-native{
+    text-transform:capitalize;
 }

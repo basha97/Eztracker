@@ -108,14 +108,14 @@ export class AppComponent {
                 }
             }
         });
-        // storage.get('token').then((val) => {
-        //     console.log(val);
-        //     if(val){
-        //         this.router.navigateByUrl('/home');
-        //     }else{
-        //         this.router.navigateByUrl('/login');
-        //     }
-        // });
+        storage.get('token').then((val) => {
+            console.log(val);
+            if(val){
+                this.router.navigateByUrl('/home');
+            }else{
+                this.router.navigateByUrl('/login');
+            }
+        });
 
         this.event.subscribe('user:loggedIn', (type: string) => {
 
@@ -126,7 +126,7 @@ export class AppComponent {
 
     initializeApp() {
         this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
+            this.statusBar.backgroundColorByHexString('black');
             this.splashScreen.hide();
 
         });

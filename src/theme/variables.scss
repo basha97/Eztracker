@@ -137,7 +137,8 @@ a{
 .menu-title{
   padding-left:20px;
   margin-bottom:42px;
-  font-size:29px
+  font-size:29px;
+  position: relative;
 }
 
 .menu-title span{
@@ -156,7 +157,7 @@ a{
     border-radius: 2px;
     display: block;
     position: absolute;
-    top:87px
+    top:69px
 }
 
 .item-detail-icon{
@@ -178,4 +179,62 @@ a{
 
 .item-radio-checked.item ion-label {
   color: blue !important; //your color here for selected option
+}
+
+.my-custom-modal-css .modal-wrapper {
+/*   height: 100%;
+   top: 50%;
+   position: absolute; 
+   display: block;  */
+}
+
+.updateTaskModal .modal-wrapper {
+   height: 100%;
+   top: 40%;
+   left:10px;
+   right:10px;
+   width: 94%;
+   border-radius: 11px;
+   position: absolute; 
+   background:transparent;
+   display: block;  
+}
+
+.page-title-bg-modal{
+  height:50px;
+  background:linear-gradient(to right, #ab1f15, #e43132);
+}
+.page-title-bg-modal h3{
+  color:white;
+  position:relative;
+  margin-top: 6px;
+  font-size: 21px;
+}
+
+
+
+.page-title-modal:after{
+    content: "";
+    background-color: #ffffff;
+    width: 47px;
+    height: 2px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    top: 28px;
+}
+
+.img-back{
+    border: 0;
+    top: 16px;
+    right: 10px;
+    position: absolute;
+}
+.btn-back{
+    position: absolute;
+    right: 24px;
+    top: 9px;
+}
+.img-back-img{
+    width: 27px;
 }

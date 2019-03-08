@@ -1,0 +1,364 @@
+.page-title{
+  color:white;
+  font-weight:100;
+  font-size:20px;
+  text-align: left;
+  padding-inline-start:10px;
+}
+
+.page-title-bg{
+	height:130px;
+	background:linear-gradient(to right, #751a00,  #e43132);
+}
+
+
+.page-title:after{
+  content: "";
+    background-color: #ffffff;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    top: 45px;
+}
+
+.page-title2{
+  color:black;
+  font-weight:700;
+  font-size:14px;
+  text-align: left;
+  padding-inline-start:10px;
+}
+
+.page-title2:after{
+    content: "";
+    /* background-color: black; */
+    width: 80px;
+    height: 3px;
+    /* border-radius: 6px; */
+    display: block;
+    position: absolute;
+    border-bottom: dashed 2px #ba281f;
+    top: 40px;
+}
+.cart-bg{
+  background:white;
+  border-radius:5px;
+}
+
+.mt-60{
+  margin-top: -60px;
+}
+
+.mb-10{
+  padding-bottom:10px;
+}
+.input{
+  background: #eee;
+    --padding-top:5px;
+    --padding-end:5px;
+    font-size:13px;
+    --padding-start:15px;
+    --padding-bottom:5px;
+    border-radius: 4px;
+    margin-top:5px;
+}
+.label{
+  font-weight: 600;
+    font-size: 13px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.btn{
+  --background: #d02d0b;
+    color: white;
+    font-size: 13px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-bottom: 0px;
+    --padding-top: -1px;
+    --border-radius: 3px;
+}
+
+.tag-container {
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding: 10px;
+  margin: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #5bc0de;
+  color: #fff;
+  margin: 5px 5px;
+  padding: 2px 5px;
+}
+.option{
+  padding: 8px;
+    background: #4caf50bd;
+    font-size: 12px;
+    border-radius: 6px;
+    color: white;
+    position: relative;
+    padding-right:20px;
+    margin-right:6px;
+    margin-bottom:3px;
+    text-transform:capitalize;
+     white-space:nowrap;
+   display: inline-block;
+}
+
+.close-option{
+  font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.icon {
+    
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: red;
+}
+.color-one{
+  background:#009688ad;
+}
+.color-two{
+  background:#795548ad;
+}
+.color-three{
+  background:#40a4ab;
+}
+.color-four{
+  background:#babaff;
+}
+.color-five{
+  background:#d7b8ff;
+}
+
+.img-back{
+    border: 0;
+    top: 19px;
+    right: 24px;
+    position: absolute;
+}
+.btn-back{
+    position: absolute;
+    right: 24px;
+    top: 19px;
+}
+.btn-back img{
+    width: 40px;
+}
+
+.item-radio.item ion-label {
+  color: red; //your color here
+}
+.img-back{
+    border: 0;
+    width: 40px;
+    top: 19px;
+    right: 24px;
+    position: absolute;
+}
+
+.task-name{
+      font-weight: 700;
+      font-size:14px;
+}
+.color-label{
+  color:#00000080 !important;
+}
+
+.pr-20{
+  padding-right:20px;
+}
+.table {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #ddd;
+    font-size:14px;
+  }
+  .table > thead > tr > th {
+    border: 1px solid #ddd;
+    background: #ebf2fe;
+    padding: 9px;
+
+    white-space: nowrap;
+     overflow: scroll;
+  }
+  .table > tbody > tr > td {
+    border: 1px solid #ddd;
+    padding: 9px;
+
+    background: #fff;
+    white-space: nowrap;
+     overflow: scroll;
+  }
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  width:100%;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 10px;
+}
+ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #ba281f;
+  left: 20px;
+  width: 12px;
+  height: 12px;
+  z-index: 400;
+} 
+
+.mb-0{
+  margin-bottom:0px;
+}
+
+input[type=checkbox] { display: none; }
+input[type=checkbox] ~ ion-row { 
+  max-height: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space:nowrap;
+   -webkit-transition:all 1s ease;  
+   -moz-transition:all 1s ease;  
+   -o-transition:all 1s ease;  
+   transition:all 1s ease;  
+  
+}
+input[type=checkbox]:checked ~ ion-row { 
+  max-height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+input[type=checkbox] + label:before{
+  transform-origin:25% 50%;
+  border: 8px solid transparent;
+  border-width: 8px 12px; 
+  border-left-color: white;
+  margin-left: -20px;
+  width: 0;
+  height: 0;
+  display: inline-block;
+  text-align: center;
+  content: '';
+  color: #AAAFAB;
+   -webkit-transition:all .5s ease;  
+   -moz-transition:all .5s ease;  
+   -o-transition:all .5s ease;  
+   transition:all .5s ease; 
+  position: absolute;
+  margin-top: 1px;
+}
+
+input[type=checkbox]:checked + label:before {
+  transform: rotate(90deg);
+  /*margin-top: 6px;
+  margin-left: -25px;*/
+}
+
+.circle {
+  border-radius: 60%;
+  height: 32PX;
+  text-align: center;
+  width:32PX;
+      display: inline-block;
+      margin-right: 15px;
+}
+
+.initials {
+  color:white;
+  font-size: calc(30PX / 2); /* 50% of parent */
+  line-height: 1;
+  position: relative;
+  top: calc(30PX / 4); /* 25% of parent */
+}
+.username{
+  font-size: 14px;
+  font-weight: 700;
+  margin:0px;
+}
+
+.p0{
+  padding:0px;
+}
+
+.flex-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-item{
+    margin: 19px;
+    margin-bottom: -1px;
+    background: #eeeeee;
+    padding: 4px;
+    padding-right: 13px;
+    padding-left: 13px;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+.scorll{
+  overflow:scroll;
+}
+
+.badge-primary {
+  background-color: #188ae2;
+}
+.badge-success {
+  background-color: #4bd396;
+}
+.badge-info {
+  background-color: #3ac9d6;
+}
+.badge-warning {
+  background-color: #f9c851;
+}
+.badge-danger {
+  background-color: #f5707a;
+}
+.badge-purple {
+  background-color: #6b5fb5;
+}
+.badge-pink {
+  background-color: #f06292;
+}
+.badge-orange {
+  background-color: #ff9800;
+}
+.badge-brown {
+  background-color: #8d6e63;
+}
+.badge-teal {
+  background-color: #26a69a;
+}
+.badge-inverse {
+  background-color: #3b3e47;
+}

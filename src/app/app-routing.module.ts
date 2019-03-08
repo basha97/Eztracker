@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'option', loadChildren: './master/option/option.module#OptionPageModule' },  { path: 'taskitem', loadChildren: './taskitem/taskitem.module#TaskitemPageModule' },
   { path: 'admin-report-con-view', loadChildren: './Reports/admin-report-con-view/admin-report-con-view.module#AdminReportConViewPageModule' },
   { path: 'admin-report-con-view-modal', loadChildren: './Reports/Modal/admin-report-con-view-modal/admin-report-con-view-modal.module#AdminReportConViewModalPageModule' },
+  { path: 'taskupdate', loadChildren: './taskupdate/taskupdate.module#TaskupdatePageModule' },
 
 
 

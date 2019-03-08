@@ -8,7 +8,7 @@ import { ConfigService } from './config.service';
 })
 export class ReportServiceService {
 
-	public host = 'http://ezlearnapp.test/api';
+	public host = 'http://192.168.0.36/ezlearnapp/public/api';
 
   	constructor(
 		private http: HttpClient,

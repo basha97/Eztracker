@@ -9,7 +9,7 @@ import { ConfigService } from '../../app/Service/config.service'
 })
 export class AuthService {
 
-	public host = 'http://ezlearnapp.test/api';
+	public host = 'http://192.168.0.36/ezlearnapp/public/api';
   jwt:string
 
   	constructor(private http: HttpClient, public storage: Storage,public confiq :ConfigService) { 
