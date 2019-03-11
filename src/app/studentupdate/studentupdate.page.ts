@@ -13,7 +13,7 @@ export class StudentupdatePage implements OnInit {
   @ViewChild('seletedtaskname') selectname:IonSelect;
 
   form:any = {
-    selecttask:'daily',
+  	selecttask:'daily',
     taskname: '',
     taskdetails:[],
     option:[],
@@ -41,38 +41,38 @@ export class StudentupdatePage implements OnInit {
     this.storage.get('userinfo').then((val)=>{
       this.form.userdataId = val.userLink;
       console.log(this.form.userdataId);
-      this.network.taskame(this.form).subscribe((res:any)=>{
-        if(res.status == true){
-          this.taskNames = res.data;
-          if(type == 'first'){
-            setTimeout(() => {
-              this.form.taskname = ''+this.taskNames[0].id;
-              this.form.startDate = this.todayDate;
-              console.log(this.form);
-              //this.studentdata();
-            }, 500);
-          }else{
-            setTimeout(() => {
-              this.selectname.open();
-            }, 500);
-          }
-        }else{
-          this.presentToast();
-          this.form ={
-            selecttask:this.form.selecttask,
-            taskname: '',
-            taskdetails:[],
-            option:[],
-            loginstudentId:'',
-            startDate: '',
-            studentdataid:'',
-            userdataId:''
+  	this.network.taskame(this.form).subscribe((res:any)=>{
+      if(res.status == true){
+  		this.taskNames = res.data;
+      if(type == 'first'){
+        setTimeout(() => {
+          this.form.taskname = ''+this.taskNames[0].id;
+          this.form.startDate = this.todayDate;
+          console.log(this.form);
+          //this.studentdata();
+        }, 500);
+      }else{
+        setTimeout(() => {
+          this.selectname.open();
+        }, 500);
+      }
+    }else{
+     this.presentToast();
+      this.form ={
+      selecttask:this.form.selecttask,
+      taskname: '',
+      taskdetails:[],
+      option:[],
+      loginstudentId:'',
+      startDate: '',
+      studentdataid:'',
+      userdataId:''
 
-          }
-          console.log('no data found');
-          console.log(res.data);
-        }
-      });
+  }
+      console.log('no data found');
+      console.log(res.data);
+    }
+    });
     })
   }
   openSelect(){
@@ -88,33 +88,27 @@ export class StudentupdatePage implements OnInit {
   studentdata(){
     this.storage.get('userinfo').then((val) => {
       console.log(val.user_id);
-      this.form.studentdataid = val.user_id;
-      this.network.tasksavedata(this.form).subscribe((res:any)=>{
-        console.log('received')
-        if(res.status == 'failed'){
-          console.log(res.msg);
-          this.errordate = res.msg;
+       this.form.studentdataid = val.user_id;
+  	this.network.tasksavedata(this.form).subscribe((res:any)=>{
+      if(res.status == 'failed'){
+        console.log(res.msg);
+        this.errordate = res.msg;
           this.form.taskdetails =[];
           this.form.option = [];
-          return false;
-        }else if(res.status == 'success'){
-          console.log('success')
-          console.log(res);
-          this.form.taskdetails = res.taskDetails;
-          this.form.option = res.options;
-          this.form.loginstudentId = res.loginstudentId;
-          this.errormessagesdate = res.statuserror;
-          console.log('calling')
-          this.addtaskdata();
-
-          this.errordate="";
-          console.log(this.form.option);
-          console.log(this.form.taskdetails);
-          //this.addtaskdata();
-        }
-      })
-    });
-
+        return false;
+      }else if(res.status == 'success'){
+  		console.log(res);
+  		this.form.taskdetails = res.taskDetails;
+  		this.form.option = res.options;
+      this.form.loginstudentId = res.loginstudentId;
+      this.errormessagesdate = res.statuserror;
+      this.errordate="";
+      console.log(this.form.option);
+      console.log(this.form.taskdetails);
+      this.addtaskdata();
+    }
+    })
+     });
   }
 
   studentupdate(){
@@ -129,50 +123,44 @@ export class StudentupdatePage implements OnInit {
     console.log(val);
     console.log(key);
     console.log(optkey);
-    console.log(this.form.taskdetails[val].result[key].changed[optkey] ='yes');
+   console.log(this.form.taskdetails[val].result[key].changed[optkey] ='yes');
   }
 
   async presentToastFailed() {
-    const toast = await this.toast.create({
-      message: 'Status Updated successfully',
-      duration: 2000
-    });
-    toast.present();
-  }
+        const toast = await this.toast.create({
+            message: 'Status Updated successfully',
+            duration: 2000
+        });
+        toast.present();
+    }
 
-  async presentToast() {
-    const toast = await this.toast.create({
-      message: 'Data Not Available',
-      duration: 2000
-    });
-    toast.present();
-  }
+      async presentToast() {
+        const toast = await this.toast.create({
+            message: 'Data Not Available',
+            duration: 2000
+        });
+        toast.present();
+    }
 
-  async addtaskdata(){
+      async addtaskdata(){
+      const modal = await this.modalCtrl.create({
+          component: TaskPage,
+          cssClass: 'my-custom-modal-css',
+          componentProps: { 
+            taskdetails:  this.form.taskdetails,
+            option:  this.form.option,
+            loginstudentId :  this.form.loginstudentId,
+            errormessagesdate:  this.errormessagesdate,
+            taskname:this.form.taskname,
+            selecttask:this.form.selecttask
 
+          }
+      });
 
-    let tempdata = {
-        option:  this.form.option,
-        loginstudentId :  this.form.loginstudentId,
-        taskname:this.form.taskname,
-        selecttask:this.form.selecttask,
-        taskdetails:this.form.taskdetails
-        };
+      modal.present();
 
-
-    console.log('called')
-    const modal = await this.modalCtrl.create({
-      component: TaskPage,
-      cssClass: 'my-custom-modal-css',
-      componentProps: { 
-        taskdetailsdata:  tempdata,
-      }
-    });
-    console.log('presenting')
-    modal.present();
-
-    const { data } = await modal.onDidDismiss();
-    console.log(data)
+      const { data } = await modal.onDidDismiss();
+      console.log(data)
   }
 
 }

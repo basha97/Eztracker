@@ -28,25 +28,39 @@
 			</ion-col>
 		</ion-row>	
 
-		<ion-row class="flex-item task-item" *ngFor="let task of form.taskdetails | keyvalue;">
+		<ion-row class="flex-item task-item">
 				<ion-col size="4" class="p0">
-				<h3 class="font username">{{ task.value.dateFormat}}</h3>	
+				<h3 class="font username" (click)="updatemodel()">20 Jan 2018</h3>	
 				</ion-col>
-				<ion-col size="8" class="p2 scorll" >
-					<div  [ngStyle]="{'width':task.value.width}">
-						
-						<span  *ngFor="let sss of task.value.result | keyvalue; let i = index">
-							<div class="circle {{sss.value.color}}" >
-							  <span class="initials font" (click)="updatemodel(task.key,sss.key)">{{sss.value.name | slice:0:2 | uppercase}}</span>
-							</div>
-						</span>
-						
+				<ion-col size="8" class="p2 scorll">
+					<div style="width: 500px;">
+						<div class="circle" style=" background-color: #a59494;">
+						  <span class="initials font">MS</span>
+						</div>
+						<div class="circle" style=" background-color: #FF9800;">
+						  <span class="initials font">DS</span>
+						</div>
+						<div class="circle" style=" background-color: #3F51B5;">
+						  <span class="initials font">BS</span>
+						</div>
+						<div class="circle" style=" background-color: #2196F3;">
+						  <span class="initials font">LS</span>
+						</div>
+						<div class="circle" style=" background-color: #2196F3;">
+						  <span class="initials font">LS</span>
+						</div>
+						<div class="circle" style=" background-color: #2196F3;">
+						  <span class="initials font">LS</span>
+						</div>
+						<div class="circle" style=" background-color: #2196F3;">
+						  <span class="initials font">LS</span>
+						</div>
 					</div>	
 				</ion-col>
 			
 		</ion-row>
 
-		<!-- <ion-row class="flex-item task-item">
+		<ion-row class="flex-item task-item">
 				<ion-col size="4" class="p0">
 				<h3 class="font username" (click)="updatemodel()">21 Jan 2018</h3>	
 				</ion-col>
@@ -82,7 +96,7 @@
 					</div>	
 				</ion-col>
 			
-		</ion-row>	 -->	
+		</ion-row>		
 
 		
 

@@ -9,6 +9,7 @@
 .page-title-bg{
 	height:130px;
 	background:linear-gradient(to right, #751a00,  #e43132);
+	border-radius: 22px 0px 23px 0px;
 }
 
 
@@ -300,7 +301,7 @@ input[type=checkbox]:checked + label:before {
   top: calc(30PX / 4); /* 25% of parent */
 }
 .username{
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   margin:0px;
 }
@@ -327,38 +328,4 @@ input[type=checkbox]:checked + label:before {
 }
 .scorll{
   overflow:scroll;
-}
-
-.badge-primary {
-  background-color: #188ae2;
-}
-.badge-success {
-  background-color: #4bd396;
-}
-.badge-info {
-  background-color: #3ac9d6;
-}
-.badge-warning {
-  background-color: #f9c851;
-}
-.badge-danger {
-  background-color: #f5707a;
-}
-.badge-purple {
-  background-color: #6b5fb5;
-}
-.badge-pink {
-  background-color: #f06292;
-}
-.badge-orange {
-  background-color: #ff9800;
-}
-.badge-brown {
-  background-color: #8d6e63;
-}
-.badge-teal {
-  background-color: #26a69a;
-}
-.badge-inverse {
-  background-color: #3b3e47;
 }

@@ -22,6 +22,11 @@ export class AppComponent {
         title: 'Home',
         url: '/home',
         icon: 'home'
+    },
+    {
+        title: 'Home 2',
+        url: '/home2',
+        icon: 'home'
     },{
         title: 'Tracker',
         url: '/studentupdate',
@@ -37,6 +42,11 @@ export class AppComponent {
     {
         title: 'Home',
         url: '/home',
+        icon: 'home'
+    },
+    {
+        title: 'Home 2',
+        url: '/home2',
         icon: 'home'
     },
     {
@@ -108,14 +118,14 @@ export class AppComponent {
                 }
             }
         });
-        storage.get('token').then((val) => {
-            console.log(val);
-            if(val){
-                this.router.navigateByUrl('/home');
-            }else{
-                this.router.navigateByUrl('/login');
-            }
-        });
+        // storage.get('token').then((val) => {
+        //     console.log(val);
+        //     if(val){
+        //         this.router.navigateByUrl('/home');
+        //     }else{
+        //         this.router.navigateByUrl('/login');
+        //     }
+        // });
 
         this.event.subscribe('user:loggedIn', (type: string) => {
 

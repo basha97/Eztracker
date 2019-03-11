@@ -31,10 +31,13 @@ const routes: Routes = [
   { path: 'admin-report2', loadChildren: './Reports/admin-report2/admin-report2.module#AdminReport2PageModule' },
   { path: 'admin-report-modal1', loadChildren: './Reports/Modal/admin-report-modal1/admin-report-modal1.module#AdminReportModal1PageModule' },
   { path: 'color', loadChildren: './master/color/color.module#ColorPageModule' },
-  { path: 'option', loadChildren: './master/option/option.module#OptionPageModule' },  { path: 'taskitem', loadChildren: './taskitem/taskitem.module#TaskitemPageModule' },
+  { path: 'option', loadChildren: './master/option/option.module#OptionPageModule' },
+  { path: 'taskitem', loadChildren: './taskitem/taskitem.module#TaskitemPageModule' },
   { path: 'admin-report-con-view', loadChildren: './Reports/admin-report-con-view/admin-report-con-view.module#AdminReportConViewPageModule' },
   { path: 'admin-report-con-view-modal', loadChildren: './Reports/Modal/admin-report-con-view-modal/admin-report-con-view-modal.module#AdminReportConViewModalPageModule' },
   { path: 'taskupdate', loadChildren: './taskupdate/taskupdate.module#TaskupdatePageModule' },
+  { path: 'home2', loadChildren: './home-second/home-second.module#HomeSecondPageModule' },
+
 
 
 

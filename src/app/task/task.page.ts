@@ -12,53 +12,41 @@ import { Router } from '@angular/router';
 })
 export class TaskPage implements OnInit {
 	public form :any = {};
-  onestudentId:any = '';
-  onestudentdate :any = '';
-  colour:any = [
-  'badge-primary',
-  'badge-success',
-  'badge-info',
-  'badge-warning',
-  'badge-danger',
-  'badge-purple',
-  'badge-pink',
-  'badge-orange',
-  'badge-brown',
-  'badge-teal',
-  'badge-inverse'
-  ];
-  @Input()  taskdetailsdata: any;
- 
+    @Input()  taskdetails: any;
+    @Input() loginstudentId: any;
+    @Input() option: any;
+    @Input() errormessagesdate: any;
+    @Input() taskname: any;
+    @Input() selecttask: any;
 
 
   constructor(public modalCtrl : ModalController,   private router: Router,private network: AuthService,public toast: ToastController) {
-    // this.taskdetailsdata = this.form.taskdetailsdata;
-    // // this.taskdetailsdata.taskdetails = this.form.taskdetails;
-    // this.taskdetailsdata.options = this.form.option;
-    // this.taskdetailsdata.loginstudentId = this.form.loginstudentId;
-    // this.taskdetailsdata.taskname = this.form.taskname;
-    // this.taskdetailsdata.selecttask = this.form.selecttask;
-   
-  }
+    this.taskdetails = this.form.taskdetails;
+  this.option = this.form.option;
+  this.loginstudentId =this.form.loginstudentId;
+  this.errormessagesdate = this.errormessagesdate;
+  this.taskname =this.form.taskname;
+  this.selecttask =this.form.selecttask;
+   }
 
   ngOnInit() {
-
-    this.form.taskdetailsdata =this.taskdetailsdata;
-    this.form.taskdetails = this.taskdetailsdata.taskdetails;
-    this.form.option = this.taskdetailsdata.option;
-    this.form.loginstudentId = this.taskdetailsdata.loginstudentId;
-    this.form.taskname = this.taskdetailsdata.taskname;
-    this.form.selecttask = this.taskdetailsdata.selecttask;
-    console.log(this.form.taskdetailsdata);
+   
+  this.form.taskdetails =this.taskdetails;
+  this.form.option = this.option;
+  this.form.taskname = this.taskname;
+  this.form.selecttask = this.selecttask;
+  this.form.loginstudentId = this.loginstudentId;
+  this.errormessagesdate = this.errormessagesdate;
     console.log(this.form.taskdetails);
     console.log(this.form.option);
     console.log(this.form.loginstudentId);
-    console.log( this.form.taskname);
+    console.log(this.form.taskname);
     console.log(this.form.selecttask);
+    console.log(this.errormessagesdate);
 
   }
   
-  studentupdate(){
+studentupdate(){
     console.log(this.form);
     this.network.studentdataupdate(this.form).subscribe((res:any)=>{
       console.log(res);
@@ -71,54 +59,38 @@ export class TaskPage implements OnInit {
     console.log(val);
     console.log(key);
     console.log(optkey);
-    console.log(this.form.taskdetails[val].result[key].changed[optkey] ='yes');
+   console.log(this.form.taskdetails[val].result[key].changed[optkey] ='yes');
   }
   closedata(){
     this.modalCtrl.dismiss();
   }
-  updatemodel(val,dateval){
-    console.log(val);
-    console.log(dateval);
-    this.onestudentId = val;
-    this.onestudentdate = dateval;
-    this.addtask();
+  updatemodel(){
+console.log('1');
+this.addtask();
   }
   
   async presentToastFailed() {
-    const toast = await this.toast.create({
-      message: 'Status Updated successfully',
-      duration: 2000
-    });
-    toast.present();
+        const toast = await this.toast.create({
+            message: 'Status Updated successfully',
+            duration: 2000
+        });
+        toast.present();
+    }
+
+    async addtask(){
+      const modal = await this.modalCtrl.create({
+          component: TaskupdatePage,
+           cssClass: 'updateTaskModal',
+          componentProps: { 
+             
+          }
+      });
+
+      modal.present();
+
+      const { data } = await modal.onDidDismiss();
+      console.log(data)
   }
 
-  getcolour(){
-
-    
-    
-  
-  }
-
-  async addtask(){
-    const modal = await this.modalCtrl.create({
-      component: TaskupdatePage,
-      cssClass: 'updateTaskModal',
-      componentProps: { 
-        option: this.form.option,
-        taskdetails: this.form.taskdetails,
-        loginstudentId:this.form.loginstudentId,
-        taskname:this.form.taskname,
-        selecttask:this.form.selecttask,
-        studentid:this.onestudentId,
-        studentdate: this.onestudentdate,
-      }
-    });
-
-    modal.present();
-
-    const { data } = await modal.onDidDismiss();
-    console.log(data)
-  }
-
-
+   
 }

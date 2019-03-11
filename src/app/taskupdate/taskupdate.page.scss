@@ -3,13 +3,6 @@ ul.timeline {
   position: relative;
   width:100%;
 }
-ul{
-    width:100%;
-    height: 300px;
-    overflow: scroll;
-    padding: 24px;
-    padding-top: 0px;
-}
 ul.timeline:before {
     content: ' ';
     background: #d4d9df;
@@ -41,21 +34,13 @@ ul.timeline > li:before {
   margin-bottom:0px;
 }
 
-.mt-0{
-  margin:0px;
-}
-
 .p2{
   padding:2px;
-}
-.p0{
-  padding:0px;
 }
 
 .task-name{
       font-weight: 700;
       font-size:14px;
-      margin:0px;
 }
 
 .input{
@@ -66,12 +51,7 @@ ul.timeline > li:before {
     background: #eeee;
     border-radius: 6px;
     font-size:14px;
-
 }
 input{
   font-size:14px;
-  
-}
-.native-input[disabled].sc-ion-input-md{
-  opacity:1 !important;
 }
