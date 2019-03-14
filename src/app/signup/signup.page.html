@@ -3,13 +3,13 @@
 
   <ion-row class="login-bx bg-transparent login">
       <ion-col col size='12'>
-              <h2 class="white-color-html text-left">Ez Tracker <span>Register</span></h2>
+              <h2 class="white-color-html text-left">Project Tracker <span>Register</span></h2>
       </ion-col>
       <ion-col col size='12' class="pt-20">
       <ion-list>
           <ion-item class="bg-transparent ion-item">        
                 <ion-label class="white-color"> <ion-icon name="contact"></ion-icon></ion-label>
-                <ion-input  placeholder="Enter your Name" class="white-color input" type="text" [(ngModel)]='form.name'></ion-input>
+                <ion-input  placeholder="Enter Name" class="white-color input" type="text" [(ngModel)]='form.name'></ion-input>
           </ion-item>
           <ion-item class="bg-transparent pt-15 ion-item">        
                 <ion-label class="white-color"> <ion-icon name="mail"></ion-icon></ion-label>
@@ -26,13 +26,13 @@
           <ion-item class="bg-transparent pt-15  no-border" >
              <ion-col col size='6'>
                   <ion-item no-padding class="bg-transparent no-border">
-                      <ion-label class="white-color">Staff</ion-label>
+                      <ion-label class="white-color">Director</ion-label>
                       <ion-checkbox class="checkbox" [(ngModel)]="form.staff" (click)='updatetype()'></ion-checkbox>
                   </ion-item>
               </ion-col>
               <ion-col col size='6'>
                   <ion-item class="bg-transparent no-border">
-                      <ion-label class="white-color">Student</ion-label>
+                      <ion-label class="white-color">Manager</ion-label>
                       <ion-checkbox class="checkbox" [(ngModel)]="form.student" (click)='updatetypestudent()' ></ion-checkbox>
                   </ion-item>
               </ion-col> 

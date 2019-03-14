@@ -19,14 +19,9 @@ export class AppComponent {
     rootPage: '/home';
     firstmenu:any= [
     {
-        title: 'Home',
+        title: 'Dashboard',
         url: '/home',
-        icon: 'home'
-    },
-    {
-        title: 'Home 2',
-        url: '/home2',
-        icon: 'home'
+        icon: 'analytics'
     },{
         title: 'Tracker',
         url: '/studentupdate',
@@ -40,14 +35,9 @@ export class AppComponent {
     ];
     secondmenu:any = [
     {
-        title: 'Home',
+        title: 'Dashboard',
         url: '/home',
-        icon: 'home'
-    },
-    {
-        title: 'Home 2',
-        url: '/home2',
-        icon: 'home'
+        icon: 'analytics'
     },
     {
         title: 'Add Tracker',
@@ -63,13 +53,18 @@ export class AppComponent {
         title: 'Report Consolidated view',
         url: '/admin-report-con-view',
         icon: 'more'
+    },
+     {
+        title: 'Add Tracker 2',
+        url: '/homesecond',
+        icon: 'more'
     }
     ];
     public appPages = [
     {
-        title: 'Home',
+        title: 'Dashboard',
         url: '/home',
-        icon: 'home'
+        icon: 'stats'
     },
     {
         title: 'List',
@@ -118,14 +113,14 @@ export class AppComponent {
                 }
             }
         });
-        // storage.get('token').then((val) => {
-        //     console.log(val);
-        //     if(val){
-        //         this.router.navigateByUrl('/home');
-        //     }else{
-        //         this.router.navigateByUrl('/login');
-        //     }
-        // });
+        storage.get('token').then((val) => {
+            console.log(val);
+            if(val){
+                this.router.navigateByUrl('/home');
+            }else{
+                this.router.navigateByUrl('/login');
+            }
+        });
 
         this.event.subscribe('user:loggedIn', (type: string) => {
 

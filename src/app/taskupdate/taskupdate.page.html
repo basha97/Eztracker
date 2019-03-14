@@ -3,27 +3,30 @@
 		<ion-row class="page-title-bg-modal" text-left>
 			<ion-col>
 
-				<h3 class="font2 page-title-modal">SaifuDeen </h3>		
-				<img (click)="closedata()" hidden="true" src="/assets/img/close.png" class="img-back img-back-img">
-				<img (click)="closedata()" src="/assets/img/save.png" class="img-back img-back-img">
+				<h3 class="font2 page-title-modal">{{ username}} </h3>		
+				<img (click)="closedata()" src="/assets/img/close.png" class="img-back img-back-img">
+				<img (click)="savedata()" [hidden]="form.loginstudentId != studentdatedata" src="/assets/img/save.png" class="btn-save img-back-img">
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 
 	<ion-grid >
 		<ion-row>
-			<ul class="timeline">
-				<li>
+			<ul class="p0"  [ngStyle]="{'height':'300px','overflow':'scroll'}">
+				<li *ngFor="let opt of form.option  | keyvalue">
 					
-					<h3 class="font task-name">Fajar</h3>
+					
 					<ion-row class="mb-10">
-							<ion-col size="12">
-								<ion-input class="input font" placeholder="Fajar Value" type="text" ></ion-input>
+						<ion-col size="4">
+							<h3 class="font task-name" >{{ opt.value}}</h3>
+						</ion-col>
+							<ion-col size="8">
+								<ion-input class="input font" placeholder="" [style.backgroundColor]="form.taskdetails[studentiddata].result[studentdatedata].bgcolor[opt.key]"  [style.color]="form.taskdetails[studentiddata].result[studentdatedata].textcolor[opt.key]" (change)="updatecolour(opt.key)" type="text" value="{{form.taskdetails[studentiddata].result[studentdatedata][opt.key]}}" [(ngModel)]="form.taskdetails[studentiddata].result[studentdatedata][opt.key]" [disabled]= "form.loginstudentId != studentdatedata"></ion-input>
 							</ion-col>
 					</ion-row>			
 					
 				</li>
-
+<!-- 
 				<li>
 					<h3 class="font task-name">Maghrib</h3>
 					<ion-row class="mb-10">
@@ -41,8 +44,8 @@
 								<ion-input class="input font" placeholder="Ibrahim Value" type="text" ></ion-input>
 							</ion-col>
 					</ion-row>			
-					
-				</li>			
+					 -->
+<!-- 				</li> -->			
 			</ul> 
 
 		</ion-row>	

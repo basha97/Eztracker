@@ -207,7 +207,7 @@
 						<ion-row class="mb-10">	
 							<ion-col size="12">
 								<ion-label class="label font">Select Student</ion-label>
-								<ion-select multiple="true" class="input font" cancelText="cancel" okText="Okay!" [(ngModel)]="form.selectstudent"  (ionChange)="updateStudentSelection()">
+								<ion-select multiple="true" class="input font" cancelText="cancel" okText="Okay!" [(ngModel)]="form.selectstudent"  (ionChange)="updateStudentSelectiondata()">
 									<ion-select-option *ngFor="let stud of students" value="{{stud.id}}">{{stud.fullname}}</ion-select-option>
 								</ion-select>
 							</ion-col>
@@ -354,7 +354,7 @@
 							<ion-col size="12" text-right>
 								<ion-button class="btn font" *ngIf="form.selectstudent != '' && (form.optionsList.length > 0)" (click)="addtask()">Fill The Option Value</ion-button>
 
-								<ion-button shape="round" class="btn font" (click)="savetask()">Save</ion-button>
+								<ion-button shape="round" class="btn font" (click)="savetaskdata()">Save</ion-button>
 							</ion-col>	
 						</ion-row>
 					</ion-card-content>

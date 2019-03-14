@@ -18,6 +18,7 @@ import { StudentReportModalPageModule } from './Reports/Modal/student-report-mod
 import { AdminReportModalPageModule } from './Reports/Modal/admin-report-modal/admin-report-modal.module';
 import { AdminReportModal1PageModule } from './Reports/Modal/admin-report-modal1/admin-report-modal1.module';
 import { AdminReportConViewModalPageModule } from './Reports/Modal/admin-report-con-view-modal/admin-report-con-view-modal.module';
+import { IonTextAvatar } from 'ionic-text-avatar';
 
 @NgModule({
   declarations: [AppComponent],

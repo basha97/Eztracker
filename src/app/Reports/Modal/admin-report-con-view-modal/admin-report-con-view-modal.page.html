@@ -25,17 +25,18 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Student</th>
+                                    <th>Manager</th>
                                     <th>Option</th>
                                     <th>Date</th>
                                     <th>Actual</th>
                                     <th>Standard</th>
-                                    <th>Variance</th>
+                                    <th>Planned</th>
                                 </tr>
                             </thead>
                             <tbody  *ngFor="let result of reports|keyvalue, let i = index">
                                 <tr *ngFor="let res of result.value" >
-                                    <td>{{res.stu}}</td>
+                                    <td [hidden]="!res.stu != ''">{{res.stu}}</td>
+                                    <td [hidden]="!res.stu == ''">{{res.stu_name}}</td>
                                     <td>{{res.option}}</td>
                                     <td>{{res.date}}</td>
                                     <td [ngStyle]="{'background-color': res.colours , 'border' :  res.colours_border , 'color' : 'white'}">{{res.act}}</td>

@@ -31,6 +31,9 @@ export class AuthService {
     addtask(data){
       return this.http.post(`${this.host}/admintrackersave`,{data:data},this.confiq.getHeaders());
     }
+    addtaskdata(data){
+      return this.http.post(`${this.host}/admintrackersavedata`,{data:data},this.confiq.getHeaders());
+    }
     logout(data){
       return this.http.post(`${this.host}/logout`,{data:data},this.confiq.getHeaders());
     }

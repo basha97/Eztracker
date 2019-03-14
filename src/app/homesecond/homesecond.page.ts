@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   ModalController,
   ToastController,
@@ -8,13 +8,12 @@ import { NewtaskPage } from "../newtask/newtask.page";
 import { AuthService } from "../../app/Service/auth.service";
 import { Router } from "@angular/router";
 import { Storage } from "@ionic/storage";
-
 @Component({
-  selector: "app-home-second",
-  templateUrl: "./home-second.page.html",
-  styleUrls: ["./home-second.page.scss"]
+  selector: 'app-homesecond',
+  templateUrl: './homesecond.page.html',
+  styleUrls: ['./homesecond.page.scss'],
 })
-export class HomeSecondPage {
+export class HomesecondPage implements OnInit {
   errorgreater = "";
   errorthirdvalue = "";
   form: any = {
@@ -186,15 +185,21 @@ export class HomeSecondPage {
     public storage: Storage,
     private alertController: AlertController
   ) {
-    this.presentAlertConfirm();
+    
   }
 
   ngOnInit() {
+
     this.network.getsudent().subscribe((res: any) => {
       console.log(res);
       this.students = res.data;
       this.optionlistdata = res.option;
+      setTimeout(() => {
+          this.presentAlertConfirm();
+    }, 2500);
     });
+    
+   
   }
 
   async startvalue() {
@@ -215,7 +220,145 @@ export class HomeSecondPage {
     toast.present();
   }
 
-  savetask() {
+  // savetask() {
+  //   this.storage.get("userinfo").then(val => {
+  //     this.form.staffdataId = val.id;
+  //     console.log(val.id);
+  //     console.log(this.form);
+  //     console.log(this.form.studentList);
+  //     if (
+  //       this.form.groupname == "" ||
+  //       this.form.taskname == "" ||
+  //       this.form.startdate == "" ||
+  //       this.form.enddate == "" ||
+  //       this.form.selecttask == "" ||
+  //       this.form.studentList.length < 1 ||
+  //       this.form.optionsList.length < 1
+  //     ) {
+  //       this.invalidtask();
+  //       return false;
+  //     }
+  //     var ps,
+  //       pe = 0;
+  //     var pss,
+  //       pee = 0;
+  //     var flag = true;
+  //     console.log(this.form.revenue);
+  //     // this.startvalue();
+  //     for (var i = 0; i < this.form.revenue.length; i++) {
+  //       var start = parseInt(this.form.revenue[i].start);
+  //       var end = parseInt(this.form.revenue[i].end);
+  //       if (i == 0) {
+  //         ps = start;
+  //         pe = end;
+  //         if (start > end) {
+  //           console.log(start);
+  //           console.log(end);
+  //           flag = false;
+  //           this.errorgreater = "Start value is greater than end value";
+
+  //           this.startvalue();
+  //           console.log(this.errorgreater);
+  //           return false;
+  //         }
+  //       } else if (i == 1) {
+  //         pss = start;
+  //         pee = end;
+
+  //         if (start <= pe || start > end) {
+  //           // console.log(pe);
+  //           flag = false;
+  //           this.endvaluerevenue();
+  //           this.errorthirdvalue = "please fill the correct value2";
+  //           console.log(this.errorthirdvalue);
+  //           //this.endvalue();
+  //           // c/onsole.log(this.errorthirdvalue);
+  //           return false;
+  //         }
+  //       } else {
+  //         console.log(start);
+  //         console.log(end);
+  //         console.log(pe);
+
+  //         if (start <= pee || start > end) {
+  //           // console.log(start);
+  //           // console.log(end);
+  //           // console.log(pe);
+  //           flag = false;
+  //           this.errorthirdvalue = "please fill the correct value3";
+  //           this.endvaluerevenue();
+  //           console.log(this.errorthirdvalue);
+  //           //this.endvalue();
+  //           // c/onsole.log(this.errorthirdvalue);
+  //           return false;
+  //         }
+  //       }
+  //       // console.log(i);
+  //       // console.log(this.form.revenue[i].start);
+  //     }
+  //     var cs,
+  //       ce = 0;
+  //     var css,
+  //       cee = 0;
+  //     var flag1 = true;
+  //     console.log(this.form.cost);
+  //     // this.startvalue();
+  //     for (var i = 0; i < this.form.cost.length; i++) {
+  //       var start1 = parseInt(this.form.cost[i].start);
+  //       var end1 = parseInt(this.form.cost[i].end);
+  //       if (i == 0) {
+  //         cs = start1;
+  //         ce = end1;
+  //         if (start1 > end1) {
+  //           console.log(start1);
+  //           console.log(end1);
+  //           flag1 = false;
+  //           this.errorgreater = "Start value is greater than end value";
+
+  //           this.startvaluecost();
+  //           console.log(this.errorgreater);
+  //           return false;
+  //         }
+  //       } else if (i == 1) {
+  //         console.log(start1);
+  //         console.log(end1);
+  //         console.log(ce);
+  //         css = start1;
+  //         cee = end1;
+  //         if (start1 <= ce || start1 > end1) {
+  //           flag1 = false;
+  //           this.endvaluercost();
+  //           this.errorthirdvalue = "please fill the correct value2";
+  //           console.log(this.errorthirdvalue);
+
+  //           return false;
+  //         }
+  //       } else {
+  //         if (start1 <= cee || start1 > end1) {
+  //           // console.log(start);
+  //           // console.log(end);
+  //           // console.log(pe);
+  //           flag1 = false;
+  //           this.errorthirdvalue = "please fill the correct value3";
+  //           this.endvaluercost();
+  //           console.log(this.errorthirdvalue);
+
+  //           return false;
+  //         }
+  //       }
+  //     }
+
+  //     this.network.addtask(this.form).subscribe((res: any) => {
+  //       console.log(res);
+  //     });
+  //     this.presentToastFailed();
+  //   });
+  // }
+
+  savetaskmultiple(){
+console.log(this.form);
+  }
+  savetaskdata(){
     this.storage.get("userinfo").then(val => {
       this.form.staffdataId = val.id;
       console.log(val.id);
@@ -343,11 +486,12 @@ export class HomeSecondPage {
         }
       }
 
-      this.network.addtask(this.form).subscribe((res: any) => {
+      this.network.addtaskdata(this.form).subscribe((res: any) => {
         console.log(res);
       });
       this.presentToastFailed();
     });
+  
   }
 
   revenueData() {
@@ -419,6 +563,27 @@ export class HomeSecondPage {
     this.router.navigateByUrl("/home");
   }
   updateStudentSelection() {
+    this.alternativename = "";
+    this.form.studentList = [];
+    for (let i = 0; i < this.students.length; i++) {
+      if (
+        this.form.selectstudent.indexOf(this.students[i].id.toString()) != -1
+      ) {
+        let temp = {};
+
+        temp = {
+          fullname: this.students[i].fullname,
+          id: this.students[i].id,
+          alternative: this.alternativename
+        };
+        console.log(this.students[i].fullname);
+        this.form.studentList.push(temp);
+        console.log(this.form.studentList);
+      }
+    }
+  }
+
+  updateStudentSelectiondata() {
     this.alternativename = "";
     this.form.studentList = [];
     for (let i = 0; i < this.students.length; i++) {
