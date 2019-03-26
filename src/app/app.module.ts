@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { TaskPageModule } from './task/task.module';
+import { MultipleupdatemodalPageModule } from './multipleupdatemodal/multipleupdatemodal.module';
+import { Multipleupdatemodal2PageModule } from './multipleupdatemodal2/multipleupdatemodal2.module';
 import {NewtaskPageModule } from './newtask/newtask.module';
 import { TaskupdatePageModule } from './taskupdate/taskupdate.module';
 import { StudentReportModalPageModule } from './Reports/Modal/student-report-modal/student-report-modal.module';
@@ -36,8 +38,9 @@ import { IonTextAvatar } from 'ionic-text-avatar';
     CalendarModule,
     AdminReportConViewModalPageModule,
     TaskPageModule,
-    TaskupdatePageModule
-    
+    TaskupdatePageModule,
+    Multipleupdatemodal2PageModule,
+    MultipleupdatemodalPageModule
   ],
   providers: [
     StatusBar,

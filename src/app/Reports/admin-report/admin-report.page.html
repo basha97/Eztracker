@@ -14,7 +14,7 @@
                             <ion-row class="mb-10">	
                                 <ion-col size="12">
                                     <ion-label class="label font">Select Type</ion-label>
-                                    <ion-select   class="input font" placeholder="Type"  [(ngModel)]="form.taskType"  (ionChange)="fetchTasks()" #selectedtask>
+                                    <ion-select   class="input font" placeholder="Type"  [(ngModel)]="form.taskType"  (ionChange)="fetchTasks()" >
                                         <ion-select-option *ngFor="let type of taskTypes" value="{{ type }}">{{ type }}</ion-select-option>
                                     </ion-select>
                                 </ion-col>
@@ -23,7 +23,7 @@
                             <ion-row class="mb-10">	
                                 <ion-col size="12">
                                 <ion-label class="label font">Select Task</ion-label>
-                                <ion-select  class="input font" placeholder="Task" [(ngModel)]="form.taskName" (ionChange)="fetchOptions()" #selectedoption>
+                                <ion-select  class="input font" placeholder="Task" [(ngModel)]="form.taskName" (ionChange)="fetchOptions()" >
                                     <ion-select-option *ngFor="let type of taskNames" value="{{ type.id }}">{{ type.taskName }}</ion-select-option>
                                 </ion-select>
                                 </ion-col>
@@ -32,7 +32,7 @@
                             <ion-row class="mb-10">	
                                 <ion-col size="12">
                                     <ion-label class="label font">Select Manager</ion-label>
-                                    <ion-select class="input font" placeholder="Students" multiple="true" [(ngModel)]="form.studentName" (ionChange)="fetchstudent()" #selectedstudent>
+                                    <ion-select class="input font" placeholder="Students" multiple="true" [(ngModel)]="form.studentName" (ionChange)="fetchstudent()" >
                                     <ion-select-option *ngFor="let type of stuName_alias" value="{{ type.studentId }}"> {{type.getstudent[0].fullname}} - {{ type.alternative_name }} </ion-select-option>
                                     </ion-select>
                                 </ion-col>
@@ -41,7 +41,7 @@
                                 <ion-row class="mb-10">	
                                     <ion-col size="12">
                                         <ion-label class="label font">Select Option</ion-label>
-                                        <ion-select class="input font" placeholder="Options" multiple="true" (ionChange)="onClick()" [(ngModel)]="form.taskOption" cancelText="Cancel" okText="Proceed" #selectedtaskname>
+                                        <ion-select class="input font" placeholder="Options" multiple="true"  [(ngModel)]="form.taskOption" cancelText="Cancel" okText="Proceed" >
                                         <ion-select-option *ngFor="let type of taskOptions" value="{{ type.id }}">{{ type.optionName }}</ion-select-option>
                                         </ion-select>
                                     </ion-col>

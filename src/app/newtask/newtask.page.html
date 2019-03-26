@@ -8,7 +8,7 @@
 			</ion-col>
 		</ion-row>
 
-		<ion-row hidden ="true">
+		<ion-row [hidden]="yaxis == false">
 			<ion-col style="overflow: scroll;">
 				<table class="table table-striped">
 					<thead>
@@ -28,7 +28,7 @@
 			</ion-col>
 		</ion-row>
 
-	    <ion-row>
+	    <ion-row [hidden]="!yaxis == false">
 	      <ion-col style="overflow: scroll;">
 	        <table class="table table-striped">
 	          <thead>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   ModalController,
   ToastController,
-  AlertController
+  AlertController,
+  LoadingController
 } from "@ionic/angular";
 import { NewtaskPage } from "../newtask/newtask.page";
 import { AuthService } from "../../app/Service/auth.service";
@@ -16,6 +17,7 @@ import { Storage } from "@ionic/storage";
 export class HomesecondPage implements OnInit {
   errorgreater = "";
   errorthirdvalue = "";
+  loading : any;
   form: any = {
     studentList: [],
     trackecode: "",
@@ -183,7 +185,8 @@ export class HomesecondPage implements OnInit {
     public toast: ToastController,
     private router: Router,
     public storage: Storage,
-    private alertController: AlertController
+    private alertController: AlertController,
+    public loadingController: LoadingController
   ) {
     
   }
@@ -359,6 +362,7 @@ export class HomesecondPage implements OnInit {
 console.log(this.form);
   }
   savetaskdata(){
+    this.presentLoading();
     this.storage.get("userinfo").then(val => {
       this.form.staffdataId = val.id;
       console.log(val.id);
@@ -488,6 +492,7 @@ console.log(this.form);
 
       this.network.addtaskdata(this.form).subscribe((res: any) => {
         console.log(res);
+        this.loadingController.dismiss();
       });
       this.presentToastFailed();
     });
@@ -644,13 +649,17 @@ console.log(this.form);
   }
 
   async addtask() {
+    console.log(this.show_x_aixs);
+    console.log(this.show_y_aixs);
     console.log(this.form.newoptionsList);
     const modal = await this.modalCtrl.create({
       component: NewtaskPage,
       componentProps: {
         optionsList: this.form.optionsList,
         studentList: this.form.studentList,
-        newoptionList: this.form.newoptionsList
+        newoptionList: this.form.newoptionsList,
+        xaxis:this.show_x_aixs,
+        yaxis:this.show_y_aixs
       }
     });
     modal.present();
@@ -690,10 +699,19 @@ console.log(this.form);
   }
 
   add_option() {
-    this.form.newoptionsList.push({});
+    this.form.newoptionsList.push({
+
+    });
   }
 
   remove_option(index) {
+    console.log(index);
     this.form.newoptionsList.splice(index, 1);
+  }
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'wait. . .', 
+    });
+    return await this.loading.present();
   }
 }

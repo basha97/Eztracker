@@ -36,6 +36,9 @@ const routes: Routes = [
   { path: 'admin-report-con-view-modal', loadChildren: './Reports/Modal/admin-report-con-view-modal/admin-report-con-view-modal.module#AdminReportConViewModalPageModule' },
   { path: 'taskupdate', loadChildren: './taskupdate/taskupdate.module#TaskupdatePageModule' },
   { path: 'homesecond', loadChildren: './homesecond/homesecond.module#HomesecondPageModule' },
+  { path: 'multipleupdate', loadChildren: './multipleupdate/multipleupdate.module#MultipleupdatePageModule' },
+  { path: 'multipleupdatemodal', loadChildren: './multipleupdatemodal/multipleupdatemodal.module#MultipleupdatemodalPageModule' },
+  { path: 'multipleupdatemodal2', loadChildren: './multipleupdatemodal2/multipleupdatemodal2.module#Multipleupdatemodal2PageModule' },
 
 
 

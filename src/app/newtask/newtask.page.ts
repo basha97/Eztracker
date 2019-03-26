@@ -10,16 +10,22 @@ export class NewtaskPage implements OnInit {
 
   @Input()  optionsList: any;
   @Input() studentList: any;
+  @Input() xaxis:any;
+  @Input() yaxis:any;
 
   constructor(navParams: NavParams, public modalCtrl: ModalController, public toast: ToastController) {
   	console.log(this.optionsList);
   		console.log(this.studentList);
+      console.log(this.xaxis);
+      console.log(this.yaxis);
 
    }
 
   ngOnInit() {
   		console.log(this.optionsList);
   		console.log(this.studentList);
+      console.log(this.xaxis);
+      console.log(this.yaxis);
   }
   saveoption(){
     console.log(this.studentList);

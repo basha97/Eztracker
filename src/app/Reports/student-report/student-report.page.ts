@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { ModalController,IonSelect, ToastController } from '@ionic/angular';
+import { ModalController,IonSelect, ToastController, LoadingController } from '@ionic/angular';
 import { ReportServiceService } from 'src/app/Service/report-service.service';
 import { StudentReportModalPage } from '../Modal/student-report-modal/student-report-modal.page';
 import { Storage } from '@ionic/storage';
@@ -27,6 +27,7 @@ export class StudentReportPage implements OnInit {
   _user_id : any;
   _startDateInWords : any;
   _enDateInWords : any ;
+  loading : any;
 
   form: any = {
       taskType: '',
@@ -40,6 +41,7 @@ export class StudentReportPage implements OnInit {
     private network: ReportServiceService,
     public modal: ModalController,
     private storage: Storage,
+    public loadingController:LoadingController,
     public toast: ToastController) { 
     setTimeout(() => {
         this.selectRef.open();
@@ -77,6 +79,13 @@ export class StudentReportPage implements OnInit {
       return await modal.present();
     }
 
+    async presentLoading() {
+			this.loading = await this.loadingController.create({
+				message: 'wait. . .', 
+			});
+			return await this.loading.present();
+		}
+
   fetchTasks() {
 
       this.network.getTaskName(this.form.taskType,this._code).subscribe(
@@ -113,9 +122,11 @@ export class StudentReportPage implements OnInit {
             this.validation_toast();
             return false;
         }
+        this.presentLoading();
         this.network.getReports(this.form , this._code ,this._user_id).subscribe(
             (res: any) => {
               console.log(res);
+              this.loadingController.dismiss();
               this.reports = res.results1;
               this.reportsTitle = res.title;
               this._startDateInWords = res.StartDateInWords;

@@ -35,8 +35,7 @@
                             </thead>
                             <tbody  *ngFor="let result of reports|keyvalue, let i = index">
                                 <tr *ngFor="let res of result.value" >
-                                    <td [hidden]="!res.stu != ''">{{res.stu}}</td>
-                                    <td [hidden]="!res.stu == ''">{{res.stu_name}}</td>
+                                    <td>{{res.stu}}</td>
                                     <td>{{res.option}}</td>
                                     <td>{{res.date}}</td>
                                     <td [ngStyle]="{'background-color': res.colours , 'border' :  res.colours_border , 'color' : 'white'}">{{res.act}}</td>

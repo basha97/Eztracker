@@ -31,6 +31,11 @@ export class AppComponent {
         title: 'Report',
         url: '/student-report',
         icon: 'more'
+    },
+    {
+        title: 'Tracker Y',
+        url: '/multipleupdate',
+        icon: 'more'
     }
     ];
     secondmenu:any = [

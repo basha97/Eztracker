@@ -303,16 +303,16 @@
 								</ion-col>
 							</ion-row>
 						</ion-row>
-						<ion-row class="mb-10" *ngFor="let list of form.newoptionsList ; let $i = index ">
+						<ion-row class="mb-10" *ngFor="let list of form.newoptionsList ; let $i = index ;  let last = last" >
 							<ion-col size="10" >
 								<ion-label class="label font">Enter Option</ion-label>
 								<ion-input placeholder="Options"  class="input font" [(ngModel)]='list.options' type="text" ></ion-input>
 							</ion-col>
 							<ion-col size="2">
-								<ion-button *ngIf="$i == 0 " class="dyn_font"  (click)="add_option()">
+								<ion-button [hidden]="!last" class="dyn_font"  (click)="add_option()">
 									<ion-icon slot="icon-only" name="add"></ion-icon>
 								</ion-button>
-								<ion-button *ngIf="!$i==0 " (click)="remove_option($index)">
+								<ion-button *ngIf="!$i==0 " (click)="remove_option($i)">
 										<ion-icon slot="icon-only" class="" name="close"></ion-icon>
 								</ion-button>
 							</ion-col>
